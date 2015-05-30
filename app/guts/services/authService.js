@@ -10,12 +10,34 @@ app.service('authService', function($firebaseAuth){
   //function for homepage login
   this.login = function(){
   	fbRef.authWithOAuthPopup("google", function(error, authData) {
-			if (error) {
-				console.log("Login Failed.", error);
-			} else {
-				console.log("Authentication successful with:", authData)
-			}
+			// if(authData.created)
+				if (error) {
+					console.log("Login Failed.", error);
+				} else {
+					// authObj.$createUser({
+					// 	name: 'Eric'
+					// })
+  				authData.location = "83318";
+  				authData.timestamp = new Date().toISOString();
+  				fbRef.child('users').child(authData.uid.replace('google:', '')).set(authData);
+					console.log("Authentication successful with:", authData)
+				}
+
+		// 		.thenfunction(authData){
+  //     if (authData){
+  //       authData.name = user.name;
+  //       authData.timestamp = new Date().toISOString();
+  //       fbRef.child('users').child(authData.uid.replace('simplelogin:', '')).set(authData);
 		})
+		
+  }
+
+  this.register = function(user, cb){
+  	authObj.$createUser({
+  		username: user.username,
+  		email: user.email,
+  		zip: user.zip
+  	})
   }
 
 

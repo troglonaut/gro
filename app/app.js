@@ -9,6 +9,18 @@ app.config(function($routeProvider){
 			templateUrl: 'app/guts/register/register.html',
 			controller: 'registerCtrl'
 		})
+		.when('/dashboard:userId', {
+			templateUrl: 'app/guts/dashboard/dash.html',
+			controller: 'dashCtrl',
+			resolve: {
+	      userReference: function(firebaseService, $route){
+	        return firebaseService.getUser($route.current.params.userId);
+	      },
+	      thingsReference: function(firebaseService, $route){
+	        return firebaseService.getThings($route.current.params.userId);
+	      }
+    	}
+		})
 		.otherwise({
 			redirectTo: '/'
 		})
