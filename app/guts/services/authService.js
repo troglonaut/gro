@@ -41,5 +41,12 @@ app.service('authService', function($firebaseAuth, $firebaseArray, $firebaseObje
   	fbRef.unauth();
   }
 
+  // this.test = function(){
+  // 	return $http ({
+  // 		method: 'GET',
+  // 		url: 'http://www.plantmaps.com/pm_queries.php?Z2Z=84043'
+  // 	})
+  // }
+
 
 })
