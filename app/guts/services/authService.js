@@ -1,5 +1,5 @@
 var app = angular.module('gro');
-app.service('authService', function($firebaseAuth, $firebaseArray, $firebaseObject){
+app.service('authService', function($http, $firebaseAuth, $firebaseArray, $firebaseObject){
 	//reference to Firebase endpoint.
 	var fbUrl = "https://gro.firebaseio.com";
 	var userUrl = fbUrl + '/users';
@@ -39,6 +39,19 @@ app.service('authService', function($firebaseAuth, $firebaseArray, $firebaseObje
 
   this.logOut = function(){
   	fbRef.unauth();
+  }
+
+ 	//testing json converter
+  this.getZone = function(zip){
+  	$http({
+  		method: 'GET',
+  		url: 'http://www.plantmaps.com/pm_queries.php?Z2Z=' + zip,
+  		// headers: {
+  		// 	'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+  		// }
+  	}).then(function(data){
+  		console.log(data)
+  	})
   }
 
   // this.test = function(){
