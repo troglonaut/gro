@@ -31,6 +31,11 @@ app.config(function($routeProvider){
    //  	}
 		})
 
+		.when('/plantChoice/:userId'), {
+			templateUrl: 'app/guts/plantChoice/plantChoice.html',
+			controller: 'plantChoiceCtrl'
+		}
+
 		.otherwise({
 			redirectTo: '/'
 		})
