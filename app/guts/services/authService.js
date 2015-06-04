@@ -1,5 +1,5 @@
 var app = angular.module('gro');
-app.service('authService', function($http, $firebaseAuth, $firebaseArray, $firebaseObject){
+app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $firebaseObject){
 	//reference to Firebase endpoint.
 	var fbUrl = "https://gro.firebaseio.com";
 	var userUrl = fbUrl + '/users';
@@ -13,7 +13,6 @@ app.service('authService', function($http, $firebaseAuth, $firebaseArray, $fireb
   this.login = function(cb){
   	fbRef.authWithOAuthPopup("google", function(error, authData) {
 			// if(authData.created)
-
 				if (error) {
 					console.log("Login Failed.", error);
 				} else {
@@ -36,30 +35,33 @@ app.service('authService', function($http, $firebaseAuth, $firebaseArray, $fireb
   	return userObj;
   }
 
-
   this.logOut = function(){
   	fbRef.unauth();
   }
 
- 	//testing json converter
+  //used in $scope.registerUser on registerCtrl.js
   this.getZone = function(zip){
+  	var dfd = $q.defer();
   	$http({
   		method: 'GET',
-  		url: 'http://www.plantmaps.com/pm_queries.php?Z2Z=' + zip,
-  		// headers: {
-  		// 	'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-  		// }
+  		url: '/api/hardiness?zipCode=' + zip,
   	}).then(function(data){
-  		console.log(data)
+  		// console.log(data)
+  		var userData = {};
+  		betterData = data.data.LOCATIONS.LOCATION[0].$
+  		console.log(betterData)
+  		userData.zone = betterData.PHZ.substr(5, 2);
+  		userData.zoneTemp= betterData.PHZ.substr(9);
+  		userData.firstFreeze = betterData.FF;
+  		userData.lastFreeze = betterData.LF;
+  		userData.TMAX = betterData.TMAX;
+  		userData.TMIN = betterData.TMIN;
+  		userData.city = betterData.ZN;
+  		userData.state = betterData.ZSTNM;
+  		userData.stateAbb = betterData.ZSTCD;
+  		dfd.resolve(userData);
   	})
+  	return dfd.promise;
   }
-
-  // this.test = function(){
-  // 	return $http ({
-  // 		method: 'GET',
-  // 		url: 'http://www.plantmaps.com/pm_queries.php?Z2Z=84043'
-  // 	})
-  // }
-
 
 })

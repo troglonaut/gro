@@ -5,7 +5,13 @@ app.controller('registerCtrl', function($scope, $routeParams, authService){
 	console.log($scope.user)
 
 	$scope.registerUser = function(){
-		$scope.user.$save();
+		authService.getZone($scope.user.zip)
+		.then(function(data){
+			$scope.user.zoneData = data
+			console.log($scope.user.zoneData)
+		}).then(function(){
+			$scope.user.$save()
+		})
 	}
 
 	$scope.zoneClick = function(){

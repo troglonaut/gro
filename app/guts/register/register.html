@@ -2,13 +2,6 @@
 	Username: <input type="text" ng-model="user.username" placeholder="Username"> <br>
 	5-Digit Zip Code: <input type="text" ng-model="user.zip" placeholder="5-digit zip code"> <br>
 	Preferred email address: <input type="text" ng-model="user.pEmail" placeholder="preferred email address"> <br>
-
-	Find your hardiness zone below and enter in the box below... <br>
-	<iframe src="http://www.plantmaps.com/hardiness-zone-zipcode.php" name="Find the USDA Hardiness Zone for your Zipocde and Map it" width="210" scrolling="No" frameborder="0" marginheight="0" marginwidth="0">[Your browser doesn't support IFrames. <a href="http://www.plantmaps.com/hardiness-zone-zipcode.php" target="_blank">Click here</a> to find the USDA hardiness zone for your zipcode.]</iframe> <br>
-	Hardiness zone: <input type="text" ng-model="user.zone" placeholder="Hardiness zone (from above)">
 	<!-- button -->
-	<input type="submit" ng-click="registerUser()" value="Submit">
+	<input type="submit" ng-click="registerUser()" value="Next Step">
 </form>
-
-<!-- testing json converter -->
-<button ng-click="zoneClick()">get zone info</button>
