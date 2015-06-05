@@ -24,6 +24,11 @@ app.config(function($routeProvider, $httpProvider){
 			// resolve: {}
 		})
 
+		.when('/plant-setup', {
+			templateUrl: 'guts/plantSetup/plantSetup.html',
+			controller: 'plantSetupCtrl'
+		})
+		
 		.otherwise({
 			redirectTo: '/'
 		})

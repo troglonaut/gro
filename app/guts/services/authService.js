@@ -28,6 +28,7 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
 		})		
   }
 
+  // used in registerCtrl.js
   this.getUser = function(id){
   	var url = userUrl + '/' + id;
   	var ref = new Firebase(url);
@@ -51,7 +52,8 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
   		betterData = data.data.LOCATIONS.LOCATION[0].$
   		console.log(betterData)
   		userData.zone = betterData.PHZ.substr(5, 2);
-  		userData.zoneTemp= betterData.PHZ.substr(9);
+  		userData.zoneTemp = betterData.PHZ.substr(9);
+  		userData.shortZone = betterData.PHZ.substr(5, 1);
   		userData.firstFreeze = betterData.FF;
   		userData.lastFreeze = betterData.LF;
   		userData.TMAX = betterData.TMAX;
