@@ -11,21 +11,22 @@ app.service('plantChildService', function($firebaseObject){
 
 	//Creates an object using the Firebase Constructor with our endpoint passed in
 	var fbRef = new Firebase(fbUrl)
-	var veggieRef = new Firebase(vegUrl + '/' + veggie)
+	// var veggieRef = new Firebase(vegUrl + '/' + veggie)
 	// var plantsRef = new Firebase(plantsUrl);
-	// // var vegRef = new Firebase(vegUrl);
+	var vegRef = new Firebase(vegUrl);
 	// var floRef = new Firebase(floUrl);
 
 	//function to create vegetable objects
-	this.newVeg = function() {
-		veggieRef.child('zoneDates').child('directSow').set({beginDate: '', endDate: ''})
-		veggieRef.child('zoneDates').child('directSow2').set({beginDate: '', endDate: ''})
-		veggieRef.child('zoneDates').child('indoorSow').set({beginDate: '', endDate: ''})
-		veggieRef.child('zoneDates').child('indoorSow2').set({beginDate: '', endDate: ''})
-		veggieRef.child('zoneDates').child('transplant').set({beginDate: '', endDate: ''})
-		veggieRef.child('zoneDates').child('transplant2').set({beginDate: '', endDate: ''})
-		veggieRef.child('name').set('')
-		veggieRef.child('sciName').set('')
+	this.newVeg = function(veg) {
+		var veggieRef = new Firebase(vegUrl + '/' + veg.name)
+		veggieRef.child('zoneDates').child('zone-' + veg.zone).child('directSow').set({beginDate: veg.dsbd, endDate: veg.dsed})
+		veggieRef.child('zoneDates').child('zone-' + veg.zone).child('directSow2').set({beginDate: veg.dsbd2, endDate: veg.dsed2})
+		veggieRef.child('zoneDates').child('zone-' + veg.zone).child('indoorSow').set({beginDate: veg.isbd, endDate: veg.ised})
+		veggieRef.child('zoneDates').child('zone-' + veg.zone).child('indoorSow2').set({beginDate: veg.isbd2, endDate: veg.ised2})
+		veggieRef.child('zoneDates').child('zone-' + veg.zone).child('transplant').set({beginDate: veg.transBD, endDate: veg.transED})
+		veggieRef.child('zoneDates').child('zone-' + veg.zone).child('transplant2').set({beginDate: veg.transBD2, endDate: veg.transED2})
+		veggieRef.child('name').set(veg.name)
+		veggieRef.child('sciName').set(veg.sciName)
 		veggieRef.child('yieldTime').set('')
 		veggieRef.child('link').set('')
 	}
