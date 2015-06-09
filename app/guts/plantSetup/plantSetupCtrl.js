@@ -15,10 +15,20 @@ app.controller('plantSetupCtrl', function($scope, plantChildService){
 		transBD: '',
 		transED: '',
 		transBD2: '',
-		transED2: ''
+		transED2: '',
+		sciName: '',
+		link: ''
 	}
 
 	$scope.createVeg = function(){
 		plantChildService.newVeg($scope.veg);
 	}
+
+
+// $cleanUp = function() {
+// 	if !($scope.veg.zone) {
+// 		$
+// 	}
+// }
 })
+

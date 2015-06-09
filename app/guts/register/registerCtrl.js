@@ -1,7 +1,7 @@
 var app = angular.module('gro');
-app.controller('registerCtrl', function($scope, $routeParams, authService){
+app.controller('registerCtrl', function($scope, $stateParams, $location, authService){
 	
-	$scope.user = authService.getUser($routeParams.userId)
+	$scope.user = authService.getUser($stateParams.userId)
 	console.log($scope.user)
 
 	$scope.registerUser = function(){
@@ -11,11 +11,13 @@ app.controller('registerCtrl', function($scope, $routeParams, authService){
 			console.log($scope.user.zoneData)
 		}).then(function(){
 			$scope.user.$save()
+		}).then(function(){
+			$location.path('/plantChoice/' + $scope.user.uid.replace('google:', ''));
 		})
 	}
 
-	$scope.zoneClick = function(){
-		authService.getZone($scope.user.zip);
-	}
+	// $scope.zoneClick = function(){
+	// 	authService.getZone($scope.user.zip);
+	// }
 
 })

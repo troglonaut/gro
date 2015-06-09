@@ -1,7 +1,7 @@
 <form>
-	Username: <input type="text" ng-model="user.username" placeholder="Username"> <br>
-	5-Digit Zip Code: <input type="text" ng-model="user.zip" placeholder="5-digit zip code"> <br>
-	Preferred email address: <input type="text" ng-model="user.pEmail" placeholder="preferred email address"> <br>
+	<label>Username:</label><input type="text" ng-model="user.username" placeholder="Username"> <br>
+	<label>5-Digit Zip Code:<label></label><input type="text" ng-model="user.zip" placeholder="5-digit zip code"> <br>
+	<label>Preferred email address:</label><input type="email" ng-model="user.pEmail" placeholder="preferred email address"> <br>
 	<!-- button -->
 	<input type="submit" ng-click="registerUser()" value="Next Step">
 </form>

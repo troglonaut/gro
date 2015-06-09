@@ -1,36 +1,50 @@
-var app = angular.module('gro', ['ngRoute', 'firebase']);
-app.config(function($routeProvider, $httpProvider){
-	$routeProvider
+var app = angular.module('gro', ['ui.router', 'firebase', 'ui.bootstrap']);
+app.config(function($stateProvider, $urlRouterProvider){
+	
+	$urlRouterProvider.otherwise('/');
 
-		.when('/', {
+	$stateProvider
+
+		.state('home', {
 			templateUrl: 'guts/home/home.html',
-			controller: 'homeCtrl'
+			controller: 'homeCtrl',
+			url: '/'
 		})
 
-		.when('/register/:userId', {
+		.state('register', {
 			templateUrl: 'guts/register/register.html',
-			controller: 'registerCtrl'
+			controller: 'registerCtrl',
+			url: '/register/:userId'
 			// resolve: {}
 		})
 
-		.when('/plantChoice/:userId', {
+		.state('plantChoice', {
+			// abstract: true,
 			templateUrl: 'guts/plantChoice/plantChoice.html',
-			controller: 'plantChoiceCtrl'
+			controller: 'plantChoiceCtrl',
+			url: '/plantChoice/:userId'
 		})
 
-		.when('/dashboard/:userId', {
+		.state('plantChoice.subview', {
+			templateUrl: 'guts/plantChoice/plantChoice.subview.html',
+			controller: 'plantChoiceCtrl',
+			url: '/:subview'
+			// controller: function($scope, $stateParams) {
+			// 	$scope.subview = $stateParams.subview
+			// }
+		})
+
+		.state('dashboard', {
 			templateUrl: 'guts/dashboard/dash.html',
-			controller: 'dashCtrl'
+			controller: 'dashCtrl',
+			url: '/dashboard/:userId'
 			// resolve: {}
 		})
 
-		.when('/plant-setup', {
+		.state('plant-setup', {
 			templateUrl: 'guts/plantSetup/plantSetup.html',
-			controller: 'plantSetupCtrl'
-		})
-		
-		.otherwise({
-			redirectTo: '/'
+			controller: 'plantSetupCtrl',
+			url: '/plant-setup'
 		})
 
 })

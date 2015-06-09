@@ -1,0 +1,14 @@
+#left-sidebar {
+	width: 300px;
+	height: 100%;
+	float: left;
+	border-right: 1px solid black;
+}
+
+.plant-tile {
+	width: 300px;
+	height: 300px;
+	margin: 15px;
+	border: 1px solid black;
+	float: left;
+}
