@@ -22,7 +22,11 @@
 
 
  <div id="mainView">
- 	<div id="left-sidebar"></div>
+ 	<div id="left-sidebar">
+ 		<div class="choice" ng-repeat="veggie in veggies">
+ 			<span class="glyphicon glyphicon-usd" aria-hidden="true"></span><input type="checkbox"> {{veggie.name}}
+ 		</div>
+ 	</div>
 
  	<div ui-view style="height:100%; width:calc(100% - 300px); float:right"></div>
  </div>

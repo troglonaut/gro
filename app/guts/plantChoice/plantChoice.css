@@ -5,6 +5,13 @@
 	border-right: 1px solid black;
 }
 
+.choice {
+	width: 100%;
+	height: 75px;
+	background-color: gray;
+	border: 1px solid white;
+}
+
 .plant-tile {
 	width: 300px;
 	height: 300px;
