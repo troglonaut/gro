@@ -3,6 +3,8 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
 	
 	$scope.user = authService.getUser($stateParams.userId)
 	console.log($scope.user)
+  var uid = $scope.user.$id
+  console.log(uid)
 
   $scope.veggies = plantService.getVeggies();
 
@@ -19,9 +21,10 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
     });
 
     modal.result.then(function(vegUserData){
-      if(data){
+      // if(vegUserData){
         console.log(vegUserData)
-      }
+        plantService.addSowDates(uid, vegUserData)
+      // }
     });
   }
 

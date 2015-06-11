@@ -50,7 +50,7 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
   		// console.log(data)
   		var userData = {};
   		betterData = data.data.LOCATIONS.LOCATION[0].$
-  		console.log(betterData)
+  		// console.log(betterData)
   		userData.zone = betterData.PHZ.substr(5, 2);
   		userData.zoneTemp = betterData.PHZ.substr(9);
   		userData.shortZone = betterData.PHZ.substr(5, 1);
