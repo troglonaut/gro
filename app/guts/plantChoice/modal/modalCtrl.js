@@ -6,7 +6,8 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
 	$scope.veggie = veggie;
 	var saveObj = {
 		directSowDate: 'july 2nd',
-		name: veggie.name
+		name: veggie.name,
+		zoneDates: veggie.zoneDates
 	}
 
 	$scope.addSowDates = function(){
