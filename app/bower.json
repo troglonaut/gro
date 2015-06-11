@@ -19,6 +19,7 @@
   "dependencies": {
     "bootstrap": "~3.3.4",
     "angular-bootstrap": "~0.13.0",
-    "ui-router": "~0.2.15"
+    "ui-router": "~0.2.15",
+    "angular-material": "~0.9.8"
   }
 }

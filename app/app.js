@@ -1,4 +1,4 @@
-var app = angular.module('gro', ['ui.router', 'firebase', 'ui.bootstrap']);
+var app = angular.module('gro', ['ui.router', 'firebase', 'ui.bootstrap','ngMaterial']);
 app.config(function($stateProvider, $urlRouterProvider){
 	
 	$urlRouterProvider.otherwise('/');
