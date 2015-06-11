@@ -1,6 +1,11 @@
 var app = angular.module('gro', ['ui.router', 'firebase', 'ui.bootstrap','ngMaterial']);
-app.config(function($stateProvider, $urlRouterProvider){
+app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
 	
+	$mdThemingProvider.theme('default')
+		.primaryPalette('green')
+		.accentPalette('yellow')
+
+
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
