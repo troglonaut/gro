@@ -18,8 +18,10 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
       }
     });
 
-    modal.result.then(function(data){
-      console.log('success', data);
+    modal.result.then(function(vegUserData){
+      if(data){
+        console.log(vegUserData)
+      }
     });
   }
 
