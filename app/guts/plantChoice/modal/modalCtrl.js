@@ -19,9 +19,4 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
   $scope.cancel = function(){
     $modalInstance.dismiss(false);
   };
-
-  // $scope.minDate = ;
-
-  // $scope.maxDate = ;
-
 })

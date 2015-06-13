@@ -13,8 +13,25 @@ app.directive('dirPlantChoice', function(){
 			var endDate = $scope.dateObj.endDate;
 			$scope.minDate = formatDate(beginDate);
 			$scope.maxDate = formatDate(endDate);
+
+			$scope.dt = new Date($scope.minDate);
 			console.log($scope.minDate)
 			console.log($scope.maxDate)
+
+			$scope.dateOptions = {
+		    startingDay: 1,
+		  };
+			
+			// datepicker from docs
+			$scope.open = function($event) {
+		    $event.preventDefault();
+		    $event.stopPropagation();
+
+		    $scope.opened = true;
+		  };
+
+		  $scope.showCal = false;
+		  $scope.format = 'yyyy-MMMM-dd'			
 
 
 
@@ -36,15 +53,11 @@ app.directive('dirPlantChoice', function(){
 
 			function formatDate(string){
 				var d = new Date();
-				var year = d.getFullYear();
-				var yearStr = year.toString();
-
+				var year = d.getFullYear().toString() + '-'
 				var arr = string.split('')
-				arr.splice(2, 0, "/")
-				arr.push('/')
-				arr.push(yearStr)
+				arr.splice(2, 0, "-")
+				arr.unshift(year)
 				var sowDate = arr.join('')
-				console.log(sowDate)
 				return sowDate
 			}
 		}
