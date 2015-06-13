@@ -13,9 +13,13 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
       templateUrl: 'guts/plantChoice/modal/modal.html',
       controller: 'modalCtrl',
       size: 'lg',
+      // backdropClass: 'custom-modal',
       resolve: {
         veggie: function(){
           return veggie;
+        },
+        user: function(){
+          return $scope.user;
         }
       }
     });

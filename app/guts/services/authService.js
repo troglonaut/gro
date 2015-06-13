@@ -12,7 +12,6 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
   //function for homepage login
   this.login = function(cb){
   	fbRef.authWithOAuthPopup("google", function(error, authData) {
-			// if(authData.created)
 				if (error) {
 					console.log("Login Failed.", error);
 				} else {

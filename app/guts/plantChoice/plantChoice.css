@@ -19,3 +19,7 @@
 	border: 1px solid black;
 	float: left;
 }
+
+.custom-modal {
+	padding: 0;
+}

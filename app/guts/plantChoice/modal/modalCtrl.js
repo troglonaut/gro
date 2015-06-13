@@ -1,13 +1,15 @@
 var app = angular.module('gro');
-app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggie, plantService, authService){
+app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggie, user, plantService, authService){
 	console.log(veggie)
 
-	$scope.user = authService.getUser($stateParams.userId)
+	$scope.user = user;
 	$scope.veggie = veggie;
+	
 	var saveObj = {
 		directSowDate: 'july 2nd',
 		name: veggie.name,
-		zoneDates: veggie.zoneDates
+		zoneDates: veggie.zoneDates,
+		// sowDates: 
 	}
 
 	$scope.addSowDates = function(){
@@ -17,5 +19,9 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
   $scope.cancel = function(){
     $modalInstance.dismiss(false);
   };
+
+  // $scope.minDate = ;
+
+  // $scope.maxDate = ;
 
 })

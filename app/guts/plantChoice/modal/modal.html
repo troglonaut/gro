@@ -1,7 +1,11 @@
 <md-content class="md-raised">  
-  <md-card>
+  <md-card style="height:300px; padding:0; margin:0;">
     <md-card-content>
-      <h2 class="md-title">{{veggie.displayName}}</h2>
+      
+      <md-toolbar><div class="md-title">{{veggie.displayName}}</div></md-toolbar>
+      <div layout="row">
+      <dir-plant-choice date-obj="val" sow-type="key" ng-repeat="(key, val) in veggie.zoneDates[user.zoneData.shortZone]" flex></dir-plant-choice>
+      </div>
       <p>
         The {{veggie.name}} blah blah blah
       </p>
