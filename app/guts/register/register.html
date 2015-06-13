@@ -1,20 +1,21 @@
+<md-card>
+	<md-input-container flex>
+		<label>Username:</label>
+		<input type="text" ng-model="user.username">
+	</md-input-container>
 
-<md-input-container flex>
-	<label>Username:</label>
-	<input type="text" ng-model="user.username">
-</md-input-container>
+	<md-input-container flex>
+		<label>5-Digit Zip Code:</label>
+		<input type="text" ng-model="user.zip">
+	</md-input-container>
 
-<md-input-container flex>
-	<label>5-Digit Zip Code:</label>
-	<input type="text" ng-model="user.zip">
-</md-input-container>
+	<md-input-container>
+		<label>Preferred email address:</label>
+		<input type="email" ng-model="user.pEmail" placeholder="preferred email address">
+	</md-input-container>
+	<!-- button -->
+	<!-- <input type="submit" ng-click="registerUser()" value="Next Step"> -->
 
-<md-input-container>
-	<label>Preferred email address:</label>
-	<input type="email" ng-model="user.pEmail" placeholder="preferred email address">
-</md-input-container>
-<!-- button -->
-<!-- <input type="submit" ng-click="registerUser()" value="Next Step"> -->
-
-<md-button class="md-primary" ng-click="registerUser()">Next Step</md-button>
+	<md-button class="md-primary" ng-click="registerUser()">Next Step</md-button>
+</md-card>
 

@@ -3,7 +3,7 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
 	
 	$mdThemingProvider.theme('default')
 		.primaryPalette('green')
-		.accentPalette('yellow')
+		.accentPalette('brown')
 
 
 	$urlRouterProvider.otherwise('/');

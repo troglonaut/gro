@@ -25,29 +25,15 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
     });
 
     modal.result.then(function(vegUserData){
-      // if(vegUserData){
         console.log(vegUserData)
         plantService.addSowDates(uid, vegUserData)
-      // }
     });
   }
-
 
   $scope.cardToggle = function(){
   	$scope.cardShow = !($scope.cardShow);
   }
 
-  $scope.veggie;
-
   $scope.subview = $stateParams.subview;
-
-    // $scope.makeCheck = function(){
-  //   for(prop in $scope.veggies) {
-  //     prop.check = false
-  //     console.log(prop)
-  //   }
-  // }
-
-    // $scope.check = false;
 
 })
