@@ -1,10 +1,14 @@
 <md-card>
-	<md-input-container flex>
+	<md-toolbar class="md-display-1" flex>
+		Register
+	</md-toolbar>
+
+	<md-input-container>
 		<label>Username:</label>
 		<input type="text" ng-model="user.username">
 	</md-input-container>
 
-	<md-input-container flex>
+	<md-input-container>
 		<label>5-Digit Zip Code:</label>
 		<input type="text" ng-model="user.zip">
 	</md-input-container>
@@ -14,8 +18,6 @@
 		<input type="email" ng-model="user.pEmail" placeholder="preferred email address">
 	</md-input-container>
 	<!-- button -->
-	<!-- <input type="submit" ng-click="registerUser()" value="Next Step"> -->
-
 	<md-button class="md-primary" ng-click="registerUser()">Next Step</md-button>
 </md-card>
 
