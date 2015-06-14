@@ -13,12 +13,11 @@ app.directive('dirPlantChoice', function(){
 			$scope.minDate = formatDate(beginDate);
 			$scope.maxDate = formatDate(endDate);
 			$scope.dt = new Date($scope.minDate);
-			console.log($scope.minDate)
-			console.log($scope.maxDate)
 
 			$scope.dateOptions = {
 		    startingDay: 1,
 		  };
+		  console.log($scope.dateOptions)
 			
 			// datepicker from docs
 			$scope.open = function($event) {
@@ -31,18 +30,19 @@ app.directive('dirPlantChoice', function(){
 		  $scope.showCal = false;
 		  $scope.format = 'yyyy-MMMM-dd'			
 
-			// WORK ON THIS!!!
 			function formatSowType(string){
-				if(string.indexOf("directSow2") !== -1){
-					return "Direct Sow 2";
-				} else if(string.indexOf("directSow") !== -1){
+				if(string === "directSow"){
 					return "Direct Sow";
-				} else if(string.indexOf("indoorSow") !== -1){
+				} else if (string === "directSow2"){
+					return "Direct Sow 2";
+				} else if (string === "indoorSow"){
 					return "Indoor Sow";
-				} else if(string.indexOf("indoorSow2") !== -1){
+				} else if (string === "indoorSow2"){
 					return "Indoor Sow 2"
-				} else if(string.indexOf("transplant") !== -1){
-					return "Transplant";
+				} else if (string === "transplant"){
+					return "Transplant"
+				} else if (string === "transplant2"){
+					return "Transplant 2"
 				}
 			}
 
