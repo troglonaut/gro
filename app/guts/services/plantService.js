@@ -17,18 +17,11 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 
 	this.addSowDates = function(uid, veggieData){
 		var userVegUrl = userUrl + "/" + uid;
-		console.log(userVegUrl)
 		var userRef = new Firebase(userVegUrl);
   	var userObj = $firebaseObject(userRef);
 
 		var vegUrl = plantsUrl + '/veggies/' + veggieData.name;
-  	// var vegRef = new Firebase(vegUrl);
-  	// var vegObj = $firebaseObject(vegRef);
-
-  	// veggieData.zoneDates = vegObj.zoneDates;
   	fbRef.child('users').child(uid).child('user-veggies').child(veggieData.name).set(veggieData);
-
-
 	}
 
 })

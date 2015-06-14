@@ -7,13 +7,11 @@ app.directive('dirPlantChoice', function(){
 			sowType: '='
 		},
 		controller: function($scope){
-			// console.log($scope.dateObj, $scope.sowType)
 			$scope.sowType = formatSowType($scope.sowType)
 			var beginDate = $scope.dateObj.beginDate;
 			var endDate = $scope.dateObj.endDate;
 			$scope.minDate = formatDate(beginDate);
 			$scope.maxDate = formatDate(endDate);
-
 			$scope.dt = new Date($scope.minDate);
 			console.log($scope.minDate)
 			console.log($scope.maxDate)
@@ -32,9 +30,6 @@ app.directive('dirPlantChoice', function(){
 
 		  $scope.showCal = false;
 		  $scope.format = 'yyyy-MMMM-dd'			
-
-
-
 
 			// WORK ON THIS!!!
 			function formatSowType(string){

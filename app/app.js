@@ -2,8 +2,15 @@ var app = angular.module('gro', ['ui.router', 'firebase', 'ui.bootstrap','ngMate
 app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
 	
 	$mdThemingProvider.theme('default')
-		.primaryPalette('green')
-		.accentPalette('brown')
+		.primaryPalette('green', {
+			'hue-1': '300',
+			'hue-2': '200',
+			'hue-3': '50'
+		})
+		
+		.accentPalette('brown', {
+			'default': '400'
+		})
 
 
 	$urlRouterProvider.otherwise('/');

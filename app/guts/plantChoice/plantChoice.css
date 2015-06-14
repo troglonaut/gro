@@ -1,8 +1,8 @@
 #left-sidebar {
-	width: 300px;
+	width: 230px;
 	height: 100%;
 	float: left;
-	border-right: 1px solid black;
+	border-right: 1px solid white;
 }
 
 .choice {
@@ -22,4 +22,15 @@
 
 .custom-modal {
 	padding: 0;
+}
+
+.pc-sidebar-item {
+	padding-left: 10px;
+	margin: 2px;
+}
+
+.pc-subview {
+	height:100%;
+	width:calc(100% - 230px);
+	float:right;
 }

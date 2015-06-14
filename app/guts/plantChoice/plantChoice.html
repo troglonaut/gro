@@ -1,14 +1,12 @@
 <div id="mainView">
- 	<div id="left-sidebar">
- 		<div class="md-button md-primary" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
- 			<!-- <input type="checkbox" ng-model="veggie.check"> -->
- 			{{veggie.name}}
+ 	
+ 	<md-toolbar class="md-display-1">Choose your veggies!</md-toolbar>
 
- 		</div>	
+ 	<div id="left-sidebar">
+ 		<md-toolbar class="md-accent md-headline pc-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
+ 			{{veggie.displayName}}
+		</md-toolbar>	
  	</div>
 
- 	<div ui-view style="height:100%; width:calc(100% - 300px); float:right;"></div>
+ 	<div ui-view style="height:100%; width:calc(100% - 230px); float:right;"></div>
 </div>
-
-
- 
