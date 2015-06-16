@@ -6,10 +6,20 @@ app.directive('dirPlantChoice', function(){
 		templateUrl: 'guts/directives/dirPlantChoice.html',
 		scope: {
 			dateObj: '=',
-			sowType: '='
+			sowType: '=',
+			saveDataArr: '='
 		},
+		// link: function(scope, element, attrs){
+			
+		// 	element.on('click', function(){
+		// 		if(scope.showCal === true){
+		// 			scope.saveDataArr.push(scope.saveData)
+		// 		}
+		// 		// scope.apply();
+		// 		// console.log(scope.saveDataArr)
+		// 	})
+		// },
 		controller: function($scope){
-			// $scope.saveableDates = 
 
 			$scope.sowType = formatSowType($scope.sowType);
 			var beginDate = $scope.dateObj.beginDate;
@@ -23,8 +33,17 @@ app.directive('dirPlantChoice', function(){
 				console.log($scope.dt);
 			}
 
-			$scope.onChange = function(){
-				console.log($scope.dt);
+			$scope.onChange = function(){				
+				if($scope.showCal === true){
+					$scope.saveData = {
+						sowType: $scope.sowType,
+						sowDate: $scope.dt,
+						timestamp: new Date().toISOString()
+					}
+					console.log($scope.saveData)
+					$scope.saveDataArr.push($scope.saveData)
+					console.log($scope.saveDataArr)
+				}
 			}
 
 			// $scope.consoleDt = function(){
