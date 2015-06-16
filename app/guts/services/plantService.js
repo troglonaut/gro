@@ -21,11 +21,13 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
   	var userObj = $firebaseObject(userRef);
 
 		var vegUrl = plantsUrl + '/veggies/' + veggieData.name;
-  	try {
-  		fbRef.child('users').child(uid).child('user-veggies').child(veggieData.name).set(veggieData);
-  	}catch(error){
-  		console.log(error)
+  	// try {
+  	for(var i = 0; i < veggieData.sowInfo.length; i++){
+  		fbRef.child('users').child(uid).child('user-veggies').child(veggieData.name).child(veggieData.sowInfo[i].sowType).set(veggieData.sowInfo[i]);
   	}
+  	// }catch(error){
+  	// 	console.log(error)
+  	// }
   	
 	}
 

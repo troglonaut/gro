@@ -17,7 +17,7 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
 			name: veggie.name,
 			sowInfo: $scope.saveDataArr
 		});
-  };
+	  };
 
   $scope.cancel = function(){
     $modalInstance.dismiss(false);

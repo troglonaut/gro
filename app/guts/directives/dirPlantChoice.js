@@ -1,8 +1,6 @@
 var app = angular.module('gro');
 app.directive('dirPlantChoice', function(){
 	return {
-		restrict: '',
-		link: '',
 		templateUrl: 'guts/directives/dirPlantChoice.html',
 		scope: {
 			dateObj: '=',
@@ -10,16 +8,6 @@ app.directive('dirPlantChoice', function(){
 			saveDataArr: '=',
 			setInfo: '&'
 		},
-		// link: function(scope, element, attrs){
-			
-		// 	element.on('click', function(){
-		// 		if(scope.showCal === true){
-		// 			scope.saveDataArr.push(scope.saveData)
-		// 		}
-		// 		// scope.apply();
-		// 		// console.log(scope.saveDataArr)
-		// 	})
-		// },
 		controller: function($scope){
 			var sowType = $scope.sowType;
 			$scope.setInfo = ({sowType: $scope.saveData})
@@ -40,7 +28,7 @@ app.directive('dirPlantChoice', function(){
 				if($scope.showCal === true){
 					$scope.saveData = {
 						sowType: $scope.sowType,
-						sowDate: $scope.dt,
+						sowDate: $scope.dt.toDateString(),
 						timestamp: new Date().toISOString()
 					}
 					console.log($scope.saveData)
@@ -48,15 +36,6 @@ app.directive('dirPlantChoice', function(){
 					console.log($scope.saveDataArr)
 				}
 			}
-
-			// $scope.consoleDt = function(){
-			// 	console.log(dt)
-			// }
-			
-			// $scope.dateObj.pickDate = new Date(minDate);
-			// console.log($scope.sowType.pickDate)
-			
-			// $scope.dt = new Date($scope.minDate);
 
 			$scope.dateOptions = {
 		    startingDay: 1,
@@ -100,6 +79,5 @@ app.directive('dirPlantChoice', function(){
 				return sowDate
 			}
 		}
-
 	}
 })
