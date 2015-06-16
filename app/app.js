@@ -12,7 +12,6 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
 			'default': '400'
 		})
 
-
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider

@@ -16,8 +16,4 @@ app.controller('registerCtrl', function($scope, $stateParams, $location, authSer
 		})
 	}
 
-	// $scope.zoneClick = function(){
-	// 	authService.getZone($scope.user.zip);
-	// }
-
 })

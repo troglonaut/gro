@@ -1,23 +1,45 @@
 var app = angular.module('gro');
 app.directive('dirPlantChoice', function(){
 	return {
+		restrict: '',
+		link: '',
 		templateUrl: 'guts/directives/dirPlantChoice.html',
 		scope: {
 			dateObj: '=',
 			sowType: '='
 		},
 		controller: function($scope){
-			$scope.sowType = formatSowType($scope.sowType)
+			// $scope.saveableDates = 
+
+			$scope.sowType = formatSowType($scope.sowType);
 			var beginDate = $scope.dateObj.beginDate;
 			var endDate = $scope.dateObj.endDate;
 			$scope.minDate = formatDate(beginDate);
 			$scope.maxDate = formatDate(endDate);
-			$scope.dt = new Date($scope.minDate);
+			var minDate = $scope.minDate;
+			$scope.dt = new Date(minDate);
+			
+			$scope.dtLog = function(){
+				console.log($scope.dt);
+			}
+
+			$scope.onChange = function(){
+				console.log($scope.dt);
+			}
+
+			// $scope.consoleDt = function(){
+			// 	console.log(dt)
+			// }
+			
+			// $scope.dateObj.pickDate = new Date(minDate);
+			// console.log($scope.sowType.pickDate)
+			
+			// $scope.dt = new Date($scope.minDate);
 
 			$scope.dateOptions = {
 		    startingDay: 1,
+		    // initDate: minDate
 		  };
-		  console.log($scope.dateOptions)
 			
 			// datepicker from docs
 			$scope.open = function($event) {
