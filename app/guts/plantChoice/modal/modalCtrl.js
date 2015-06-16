@@ -4,19 +4,19 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
 
 	$scope.user = user;
 	$scope.veggie = veggie;
-	
-	// var saveObj = {
-	// 	directSowDate: 'july 2nd',
-	// 	name: veggie.name,
-	// 	zoneDates: veggie.zoneDates,
-	// 	// sowDates: 
-	// }
 
 	$scope.saveDataArr = [];
 
+	$scope.setDates = function(info){
+		$scope.sowDateInfo = info;
+	}
+
 	$scope.addSowDates = function(){
-    $modalInstance.close(saveObj);
-    $modalInstance.close()
+    
+    $modalInstance.close({
+			name: veggie.name,
+			sowInfo: $scope.saveDataArr
+		});
   };
 
   $scope.cancel = function(){

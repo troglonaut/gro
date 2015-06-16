@@ -4,7 +4,7 @@
       
       <md-toolbar><div class="md-title">{{veggie.displayName}}</div></md-toolbar>
       <div layout="row">
-      <dir-plant-choice save-data-arr="saveDataArr" date-obj="val" sow-type="key" ng-repeat="(key, val) in veggie.zoneDates[user.zoneData.shortZone]" flex></dir-plant-choice>
+      <dir-plant-choice set-info="getInfo(sowType)" save-data-arr="saveDataArr" date-obj="val" sow-type="key" ng-repeat="(key, val) in veggie.zoneDates[user.zoneData.shortZone]" flex></dir-plant-choice>
       </div>
       <p>
         The {{veggie.name}} blah blah blah

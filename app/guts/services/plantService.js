@@ -21,7 +21,12 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
   	var userObj = $firebaseObject(userRef);
 
 		var vegUrl = plantsUrl + '/veggies/' + veggieData.name;
-  	fbRef.child('users').child(uid).child('user-veggies').child(veggieData.name).set(veggieData);
+  	try {
+  		fbRef.child('users').child(uid).child('user-veggies').child(veggieData.name).set(veggieData);
+  	}catch(error){
+  		console.log(error)
+  	}
+  	
 	}
 
 })

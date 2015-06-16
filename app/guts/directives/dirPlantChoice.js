@@ -7,7 +7,8 @@ app.directive('dirPlantChoice', function(){
 		scope: {
 			dateObj: '=',
 			sowType: '=',
-			saveDataArr: '='
+			saveDataArr: '=',
+			setInfo: '&'
 		},
 		// link: function(scope, element, attrs){
 			
@@ -20,6 +21,8 @@ app.directive('dirPlantChoice', function(){
 		// 	})
 		// },
 		controller: function($scope){
+			var sowType = $scope.sowType;
+			$scope.setInfo = ({sowType: $scope.saveData})
 
 			$scope.sowType = formatSowType($scope.sowType);
 			var beginDate = $scope.dateObj.beginDate;
