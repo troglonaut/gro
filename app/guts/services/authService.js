@@ -10,9 +10,13 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
   var authObj = $firebaseAuth(fbRef);
 
   //function for homepage login
-  this.login = function(cb){
+  this.login = function(cb, cb2){
   	fbRef.authWithOAuthPopup("google", function(error, authData) {
-				if (error) {
+				// var id = authData.uid.replace('google:', '')
+    //     var verifiedUrl = userUrl + '/' + id
+    //     var varRef = new Firebase(verifiedUrl);
+        console.log(authData)
+        if (error) {
 					console.log("Login Failed.", error);
 				} else {
   				authData.timestamp = new Date().toISOString();
@@ -20,6 +24,7 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
   				authData.lastName =  authData.google.cachedUserProfile.family_name;
   				authData.gender =  authData.google.cachedUserProfile.gender;
   				authData.photoUrl =  authData.google.cachedUserProfile.picture;
+          authData.id = authData.uid.replace('google:', '')
   				fbRef.child('users').child(authData.uid.replace('google:', '')).set(authData);
 					console.log("Authentication successful with:", authData)
 					cb(authData)

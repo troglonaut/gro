@@ -2,9 +2,9 @@ var app = angular.module('gro');
 app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authService, plantService){
 	
 	$scope.user = authService.getUser($stateParams.userId)
-	console.log($scope.user)
+	// console.log($scope.user)
   var uid = $scope.user.$id
-  console.log(uid)
+  // console.log(uid)
 
   $scope.veggies = plantService.getVeggies();
 
@@ -25,7 +25,7 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
     });
 
     modal.result.then(function(vegUserData){
-        console.log(vegUserData)
+        // console.log(vegUserData)
         plantService.addSowDates(uid, vegUserData)
     });
   }
@@ -35,5 +35,7 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
   }
 
   $scope.subview = $stateParams.subview;
+
+  $scope.calendarEvents = {}
 
 })
