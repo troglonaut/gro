@@ -9,7 +9,10 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
 		})
 		
 		.accentPalette('brown', {
-			'default': '400'
+			'default': '400',
+			'hue-1': '300',
+			'hue-2': '200',
+			'hue-3': '50'
 		})
 
 	$urlRouterProvider.otherwise('/');
@@ -30,17 +33,9 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
 		})
 
 		.state('plantChoice', {
-			// abstract: true,
 			templateUrl: 'guts/plantChoice/plantChoice.html',
 			controller: 'plantChoiceCtrl',
 			url: '/plantChoice/:userId/'
-			// resolve: {
-			// 	user: function($q, authService){
-			// 		var dfd = $q.defer()
-			// 		dfd.resolve(authService.getUser($stateParams.userId))
-			// 		return dfd.promise;
-			// 	}
-			// }
 		})
 
 		.state('plantChoice.subview', {

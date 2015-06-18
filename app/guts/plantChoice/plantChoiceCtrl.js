@@ -5,6 +5,7 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
   var user1 = $scope.user;
   var uid = $scope.user.$id;
   console.log(user)
+  console.log($scope.user)
   
   $scope.veggies = plantService.getVeggies();
   $scope.subview = $stateParams.subview;
@@ -24,7 +25,6 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
         }
       }
     });
-
     modal.result.then(function(vegUserData){
         plantService.addSowDates(user, vegUserData)
     });
@@ -38,24 +38,20 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
     summary: 'gro Planting Dates'
   }
 
-  console.log(newCal)
-
-  var calEvents = $scope.user.calendar
-
-  console.log(calEvents)
-
   $scope.calMagic = function(){
-    googleCalendarService.authCal()
-      .then(function(data){
-        var token = data.access_token
-        googleCalendarService.makeCalendar(token, newCal)
+    googleCalendarService.getEventInfo($scope.user)
+      .then(function(dataArr){
+        var allEvents = dataArr
+        googleCalendarService.authCal()
+          .then(function(data){
+            var token = data.access_token;
+            googleCalendarService.makeCalendar(token, newCal)
+              .then(function(data){
+                var calId = data.data.id;
+                console.log("Calendar ID:", calId)
+                googleCalendarService.addEvents(allEvents, calId, token)
+              })
+          })
       })
-    // googleCalendarService.makeCalendar(newCal, $scope.user)
-
-    // KEEP THIS STUFF!!!!!
-    // googleCalendarService.getEventInfo($scope.user)
-    //   .then(function(data){
-    //     console.log(data)
-    //   })
   }
 })

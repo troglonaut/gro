@@ -6,7 +6,6 @@ app.service('googleCalendarService', function($http, $q, $firebaseObject, $fireb
 	// var userUrl = fbUrl + '/users';
 
 	this.authCal = function auth(){
-
     var config = {
       'client_id': '238802456098-k877fsdam5n5g4v4vep8ali19ock1a39.apps.googleusercontent.com',
       'scope': 'https://www.googleapis.com/auth/calendar'
@@ -23,18 +22,23 @@ app.service('googleCalendarService', function($http, $q, $firebaseObject, $fireb
 
   this.makeCalendar = function(token, newCalData){
 		console.log(token)
-		$http({
+		return $http({
 			method: 'POST',
 			url: 'https://www.googleapis.com/calendar/v3/calendars?access_token=' + token + '&key={AIzaSyA-XA09f52psm_Iq85SiP8TDHOLAIrDZ6U}',
 			data: angular.toJson(newCalData)
-		}).then(function(data){
-			console.log(data)
 		})
 	}
 
-	this.addEvents = function(eventsObj){
-		for(var event in eventsObj){
-
+	this.addEvents = function(eventsArr, calId, token){
+		for(var i = 0; i < eventsArr.length; i++){
+			console.log(eventsArr[i])
+			$http({
+				method: 'POST',
+				url: 'https://www.googleapis.com/calendar/v3/calendars/' + calId +'/events?access_token=' + token + '&key={AIzaSyA-XA09f52psm_Iq85SiP8TDHOLAIrDZ6U}',
+				data: eventsArr[i]
+			}).then(function(data){
+				console.log(data)
+			})
 		}
 	}
 
