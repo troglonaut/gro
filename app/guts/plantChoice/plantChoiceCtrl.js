@@ -1,12 +1,13 @@
 var app = angular.module('gro');
-app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authService, plantService){
-	
-	$scope.user = authService.getUser($stateParams.userId)
-	// console.log($scope.user)
-  var uid = $scope.user.$id
-  // console.log(uid)
-
+app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authService, plantService, googleCalendarService){
+	$scope.user = authService.getUser($stateParams.userId);
+  var user = $scope.user;
+  var user1 = $scope.user;
+  var uid = $scope.user.$id;
+  console.log(user)
+  
   $scope.veggies = plantService.getVeggies();
+  $scope.subview = $stateParams.subview;
 
   $scope.openModal = function(veggie){
     var modal = $modal.open({
@@ -25,8 +26,7 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
     });
 
     modal.result.then(function(vegUserData){
-        // console.log(vegUserData)
-        plantService.addSowDates(uid, vegUserData)
+        plantService.addSowDates(user, vegUserData)
     });
   }
 
@@ -34,8 +34,20 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
   	$scope.cardShow = !($scope.cardShow);
   }
 
-  $scope.subview = $stateParams.subview;
+  var newCal = {
+    summary: 'gro Planting Dates'
+  }
 
-  $scope.calendarEvents = {}
+  console.log(newCal)
 
+  var calEvents = $scope.user.calendar
+
+  console.log(calEvents)
+
+  $scope.calMagic = function(){
+    googleCalendarService.getEventInfo($scope.user)
+      .then(function(data){
+        console.log(data)
+      })
+  }
 })

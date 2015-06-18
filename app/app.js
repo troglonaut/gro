@@ -34,6 +34,13 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
 			templateUrl: 'guts/plantChoice/plantChoice.html',
 			controller: 'plantChoiceCtrl',
 			url: '/plantChoice/:userId/'
+			// resolve: {
+			// 	user: function($q, authService){
+			// 		var dfd = $q.defer()
+			// 		dfd.resolve(authService.getUser($stateParams.userId))
+			// 		return dfd.promise;
+			// 	}
+			// }
 		})
 
 		.state('plantChoice.subview', {

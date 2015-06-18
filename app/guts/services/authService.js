@@ -57,7 +57,6 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
   		method: 'GET',
   		url: '/api/hardiness?zipCode=' + zip,
   	}).then(function(data){
-  		// console.log(data)
   		var userData = {};
   		betterData = data.data.LOCATIONS.LOCATION[0].$
   		console.log(betterData)
