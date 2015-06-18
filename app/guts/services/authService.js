@@ -10,7 +10,7 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
   var authObj = $firebaseAuth(fbRef);
 
   //function for homepage login
-  this.login = function(cb, cb2){
+  this.login = function(cb){
   	fbRef.authWithOAuthPopup("google", function(error, authData) {
 				// var id = authData.uid.replace('google:', '')
     //     var verifiedUrl = userUrl + '/' + id

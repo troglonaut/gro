@@ -19,6 +19,7 @@ app.directive('dirPlantChoice', function(){
 			$scope.maxDate = formatDate(endDate);
 			var minDate = $scope.minDate;
 			$scope.dt = new Date(minDate);
+			console.log($scope.minDate, $scope.maxDate)
 			
 			$scope.dtLog = function(){
 				console.log($scope.dt);
@@ -26,10 +27,21 @@ app.directive('dirPlantChoice', function(){
 
 			$scope.onChange = function(){				
 				if($scope.showCal === true){
+					var forGoogDate = $scope.dt.toISOString()
+					var forGoogDate2 = forGoogDate.split('');
+					var calArray = [];
+					for(var i = 0; i < forGoogDate2.length; i++){
+						if(forGoogDate2[i] === 'T'){
+							break
+						} else {
+							calArray.push(forGoogDate2[i])
+						}
+					}
 					$scope.saveData = {
 						sowType: $scope.sowType,
 						sowDate: $scope.dt.toDateString(),
-						timestamp: new Date().toISOString()
+						timestamp: new Date().toISOString(),
+						googleDate: calArray.join('')
 					}
 					console.log($scope.saveData)
 					$scope.saveDataArr.push($scope.saveData)
@@ -71,12 +83,12 @@ app.directive('dirPlantChoice', function(){
 
 			function formatDate(string){
 				var d = new Date();
-				var year = d.getFullYear().toString() + '-'
-				var arr = string.split('')
-				arr.splice(2, 0, "-")
-				arr.unshift(year)
-				var sowDate = arr.join('')
-				return sowDate
+				var year = d.getFullYear().toString() + '-';
+				var arr = string.split('');
+				arr.splice(2, 0, "-");
+				arr.unshift(year);
+				var sowDate = arr.join('');
+				return sowDate;
 			}
 		}
 	}
