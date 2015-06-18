@@ -5,27 +5,31 @@ app.service('googleCalendarService', function($http, $q, $firebaseObject, $fireb
 	var fbRef = new Firebase(fbUrl);
 	// var userUrl = fbUrl + '/users';
 
-	this.makeCalendar = function auth(){
+	this.authCal = function auth(){
 
-        var config = {
-          'client_id': '238802456098-k877fsdam5n5g4v4vep8ali19ock1a39.apps.googleusercontent.com',
-          'scope': 'https://www.googleapis.com/auth/calendar'
-        };
-        gapi.auth.authorize(config, function() {
-          console.log('login complete');
-          console.log(gapi.auth.getToken());
-        });
-      
+    var config = {
+      'client_id': '238802456098-k877fsdam5n5g4v4vep8ali19ock1a39.apps.googleusercontent.com',
+      'scope': 'https://www.googleapis.com/auth/calendar'
+    };
+    var dfd = $q.defer()
+    gapi.auth.authorize(config, function() {
+      console.log('login complete');
+      console.log(gapi.auth.getToken());
+      var token = gapi.auth.getToken();
+      dfd.resolve(token)
+    }); 
+    return dfd.promise  
+  }
 
-		//  DON'T DELETE!
-		// console.log(user.google.accessToken)
-		// $http({
-		// 	method: 'POST',
-		// 	url: 'https://www.googleapis.com/calendar/v3/calendars?access_token=' + user.google.accessToken + '&key={AIzaSyA-XA09f52psm_Iq85SiP8TDHOLAIrDZ6U}',
-		// 	data: angular.toJson(newCalData)
-		// }).then(function(data){
-		// 	console.log(data)
-		// })
+  this.makeCalendar = function(token, newCalData){
+		console.log(token)
+		$http({
+			method: 'POST',
+			url: 'https://www.googleapis.com/calendar/v3/calendars?access_token=' + token + '&key={AIzaSyA-XA09f52psm_Iq85SiP8TDHOLAIrDZ6U}',
+			data: angular.toJson(newCalData)
+		}).then(function(data){
+			console.log(data)
+		})
 	}
 
 	this.addEvents = function(eventsObj){
