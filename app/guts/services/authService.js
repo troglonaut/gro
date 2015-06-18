@@ -1,5 +1,5 @@
 var app = angular.module('gro');
-app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $firebaseObject){
+app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $firebaseObject, $state){
 	//reference to Firebase endpoint.
 	var fbUrl = "https://gro.firebaseio.com";
 	var userUrl = fbUrl + '/users';
@@ -15,19 +15,27 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
 				// var id = authData.uid.replace('google:', '')
     //     var verifiedUrl = userUrl + '/' + id
     //     var varRef = new Firebase(verifiedUrl);
-        console.log(authData)
         if (error) {
 					console.log("Login Failed.", error);
 				} else {
-  				authData.timestamp = new Date().toISOString();
-  				authData.firstName =  authData.google.cachedUserProfile.given_name;
-  				authData.lastName =  authData.google.cachedUserProfile.family_name;
-  				authData.gender =  authData.google.cachedUserProfile.gender;
-  				authData.photoUrl =  authData.google.cachedUserProfile.picture;
-          authData.id = authData.uid.replace('google:', '')
-  				fbRef.child('users').child(authData.uid.replace('google:', '')).set(authData);
-					console.log("Authentication successful with:", authData)
-					cb(authData)
+          fbRef.child('users').child(authData.uid.replace('google:', '')).once('value', function(snapshot){
+            console.log("SNAPSHOT", snapshot.val());
+            if(snapshot.exists()){
+              console.log("im hither");
+              $state.go('plantChoice', {userId: authData.uid.replace('google:', '')});
+            } else {
+              authData.timestamp = new Date().toISOString();
+              authData.firstName =  authData.google.cachedUserProfile.given_name;
+              authData.lastName =  authData.google.cachedUserProfile.family_name;
+              authData.gender =  authData.google.cachedUserProfile.gender;
+              authData.photoUrl =  authData.google.cachedUserProfile.picture;
+              authData.id = authData.uid.replace('google:', '')
+              fbRef.child('users').child(authData.uid.replace('google:', '')).set(authData);
+              console.log("Authentication successful with:", authData)
+              cb(authData)  
+            }
+          })
+  				
 				}
 		})		
   }

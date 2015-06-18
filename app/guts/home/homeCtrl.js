@@ -14,7 +14,7 @@ app.controller('homeCtrl', function($scope, $location, authService){
   // }
 
 	$scope.logIn = function(){
-		return authService.login(loginCallback, loginCallback2)
+		return authService.login(loginCallback)
 		// $location.path('/dashboard/' + user.uid)
 	}
 

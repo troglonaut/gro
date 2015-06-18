@@ -19,14 +19,17 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 		var userVegUrl = userUrl + "/" + uid;
 		var userRef = new Firebase(userVegUrl);
   	var userObj = $firebaseObject(userRef);
+
+  	// Creates Google Calendar event
   	for(var i = 0; i < veggieData.sowInfo.length; i++){
 	  	veggieData.sowInfo[i].calEvent = {
-	  		summary: "Plant your " + veggieData.name,
+	  		summary: "Plant  " + veggieData.displayName + "(" + veggieData.sowInfo[i].sowType + ")",
+	  		description: "It's time to plant your " + veggieData.name + "! Hooray!  Make sure it hasn't dropped below freezing tempurature in your area recently.",
 	  		start: {
-	  			date: veggieData.sowInfo[i].sowDate
+	  			date: veggieData.sowInfo[i].googleDate
 	  		},
 	  		end: {
-	  			date: veggieData.sowInfo[i].sowDate
+	  			date: veggieData.sowInfo[i].googleDate
 	  		}
 	  	}
   	}
