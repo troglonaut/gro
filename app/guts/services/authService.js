@@ -12,17 +12,15 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
   //function for homepage login
   this.login = function(cb){
   	fbRef.authWithOAuthPopup("google", function(error, authData) {
-				// var id = authData.uid.replace('google:', '')
-    //     var verifiedUrl = userUrl + '/' + id
-    //     var varRef = new Firebase(verifiedUrl);
+
         if (error) {
 					console.log("Login Failed.", error);
 				} else {
           fbRef.child('users').child(authData.uid.replace('google:', '')).once('value', function(snapshot){
-            console.log("SNAPSHOT", snapshot.val());
+            // console.log("SNAPSHOT", snapshot.val());
             if(snapshot.exists()){
-              console.log("im hither");
-              $state.go('plantChoice', {userId: authData.uid.replace('google:', '')});
+              // console.log("im hither");
+              $state.go('plantChoice.subview', {userId: authData.uid.replace('google:', '')});
             } else {
               authData.timestamp = new Date().toISOString();
               authData.firstName =  authData.google.cachedUserProfile.given_name;

@@ -1,5 +1,5 @@
 var app = angular.module('gro');
-app.controller('registerCtrl', function($scope, $stateParams, $location, authService){
+app.controller('registerCtrl', function($scope, $stateParams, $state, $location, authService){
 	
 	$scope.user = authService.getUser($stateParams.userId)
 	console.log($scope.user)
@@ -12,7 +12,7 @@ app.controller('registerCtrl', function($scope, $stateParams, $location, authSer
 		}).then(function(){
 			$scope.user.$save()
 		}).then(function(){
-			$location.path('/plantChoice/' + $scope.user.uid.replace('google:', ''));
+			$state.go('plantChoice.subview', {userId: $scope.user.uid.replace('google:', '')});
 		})
 	}
 

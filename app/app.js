@@ -33,7 +33,7 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
 			// abstract: true,
 			templateUrl: 'guts/plantChoice/plantChoice.html',
 			controller: 'plantChoiceCtrl',
-			url: '/plantChoice/:userId'
+			url: '/plantChoice/:userId/'
 		})
 
 		.state('plantChoice.subview', {
