@@ -12,12 +12,11 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
 	}
 
 	$scope.addSowDates = function(){
-    
     $modalInstance.close({
 			name: veggie.name,
 			sowInfo: $scope.saveDataArr
 		});
-	  };
+	};
 
   $scope.cancel = function(){
     $modalInstance.dismiss(false);

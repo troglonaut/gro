@@ -45,9 +45,12 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
   console.log(calEvents)
 
   $scope.calMagic = function(){
-    googleCalendarService.getEventInfo($scope.user)
-      .then(function(data){
-        console.log(data)
-      })
+    googleCalendarService.makeCalendar(newCal, $scope.user)
+
+    // KEEP THIS STUFF!!!!!
+    // googleCalendarService.getEventInfo($scope.user)
+    //   .then(function(data){
+    //     console.log(data)
+    //   })
   }
 })
