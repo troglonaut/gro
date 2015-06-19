@@ -33,7 +33,6 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
               cb(authData)  
             }
           })
-  				
 				}
 		})		
   }

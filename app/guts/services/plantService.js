@@ -1,5 +1,5 @@
 var app = angular.module('gro');
-app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray){
+app.service('plantService', function($http, $q, $firebaseObject){
 
 	var fbUrl = "https://gro.firebaseio.com";
 	var plantsUrl = fbUrl + '/plants';
@@ -11,9 +11,7 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 	this.getVeggies = function(){
 		var veggiesUrl = plantsUrl + '/veggies';
 		var veggiesRef = new Firebase(veggiesUrl);
-		console.log(veggiesRef)
 		var veggiesObj = $firebaseObject(veggiesRef);
-		console.log(veggiesObj)
 		return veggiesObj;
 	}
 
@@ -44,8 +42,7 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 	  	}
   	}catch(error){
   		console.log(error)
-  	}
-  	
+  	} 	
 	}
 
 })
