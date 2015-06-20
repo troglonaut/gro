@@ -20,7 +20,6 @@ app.directive('dirPlantChoice', function(){
 			var minDate = $scope.minDate;
 			$scope.dt = new Date(minDate);
 			console.log($scope.minDate, $scope.maxDate)
-			
 			$scope.dtLog = function(){
 				console.log($scope.dt);
 			}
