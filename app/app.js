@@ -1,5 +1,5 @@
 var app = angular.module('gro', ['ui.router', 'firebase', 'ui.bootstrap','ngMaterial']);
-app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
+app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider, $locationProvider){
 	
 	$mdThemingProvider.theme('default')
 		.primaryPalette('green', {
@@ -59,5 +59,7 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
 			controller: 'plantSetupCtrl',
 			url: '/plant-setup'
 		})
+
+		$locationProvider.html5Mode(true)
 
 })
