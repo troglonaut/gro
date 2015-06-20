@@ -4,8 +4,13 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
 
 	$scope.user = user;
 	$scope.veggie = veggie;
+	console.log($scope.veggie)
+	$scope.imagePath = $scope.veggie.imgUrl
+	console.log($scope.imagePath)
 
 	$scope.saveDataArr = [];
+
+	// $scope.img
 
 	$scope.setDates = function(info){
 		$scope.sowDateInfo = info;

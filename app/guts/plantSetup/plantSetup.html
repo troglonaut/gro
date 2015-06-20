@@ -17,7 +17,25 @@
 	<label>transplant end2</label><input ng-model="veg.transED2"><br>
 
 	<label>Veg Sci Name:</label><input type="text" ng-model="veg.sciName"> <br>
-	<label>Veg Link</label><input type="text" ng-model="veg.link"> <br>
+	<label>Veg Image URL:</label><input type="text" ng-model="imgUrl"> <br>
+	<label>name for URL:</label><input type="text" ng-model="namey">
+
 	<!-- button -->
 	<input type="submit" ng-click="createVeg()" value="Create Vegetable">
+	<input type="submit" ng-click="addUrl()" value="Add Image URL">
 </form>
+
+
+<!-- <md-card>
+	
+	<md-input-container>
+		<label>URL:</label>
+		<input type="text" ng-model="veg.url" /> 
+	</md-input-container>
+
+	<input type="submit" ng-click="addUrl()" value="Create Vegetable">
+	<md-button ng-click="addUrl()" class="md-primary">Add URL</md-button>
+
+</md-card> -->
+
+<form>

@@ -1,8 +1,11 @@
 <md-content class="md-raised" style="padding:0;">  
-  <md-card style="height:300px; padding:0; margin:0;">
-    <md-card-content>
+  <md-card md-class="primary-hue-3" style="height:300px; padding:0; margin:0;">
+    <md-toolbar style="padding: 10px;"><div class="md-display-1">{{veggie.displayName}}</div></md-toolbar>
+    <img style="object-fit: cover;" ng-src="{{veggie.imgUrl}}" class="md-card-image" />
+    <md-card-content class="md-padding">
       
-      <md-toolbar style="padding: 10px;"><div class="md-display-1">{{veggie.displayName}}</div></md-toolbar>
+      <!-- <md-toolbar style="padding: 10px;"><div class="md-display-1">{{veggie.displayName}}</div></md-toolbar> -->
+      <!-- <img ng-src="veggie.img-url" class="md-card-image" /> -->
       <div layout="row">
       <dir-plant-choice set-info="getInfo(sowType)" save-data-arr="saveDataArr" date-obj="val" sow-type="key" ng-repeat="(key, val) in veggie.zoneDates[user.zoneData.shortZone]" flex></dir-plant-choice>
       </div>

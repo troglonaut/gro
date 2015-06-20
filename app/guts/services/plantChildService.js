@@ -16,7 +16,7 @@ app.service('plantChildService', function($firebaseObject){
 
 	//function to create vegetable objects
 	this.newVeg = function(veg) {
-		var veggieRef = new Firebase(vegUrl + '/' + veg.name)
+		var veggieRef = new Firebase(vegUrl + '/' + name)
 		veggieRef.child('zoneDates').child('zone-' + veg.zone).child('directSow').set({beginDate: veg.dsbd, endDate: veg.dsed})
 		veggieRef.child('zoneDates').child('zone-' + veg.zone).child('directSow2').set({beginDate: veg.dsbd2, endDate: veg.dsed2})
 		veggieRef.child('zoneDates').child('zone-' + veg.zone).child('indoorSow').set({beginDate: veg.isbd, endDate: veg.ised})
@@ -27,6 +27,11 @@ app.service('plantChildService', function($firebaseObject){
 		veggieRef.child('sciName').set(veg.sciName)
 		veggieRef.child('yieldTime').set('')
 		veggieRef.child('link').set('')
+	}
+
+	this.addUrl = function(name, url) {
+		var veggieRef = new Firebase(vegUrl + '/' + name)
+		veggieRef.child('img-url').set(url);
 	}
 
 })
