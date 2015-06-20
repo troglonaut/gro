@@ -10,7 +10,9 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
 
 	$scope.saveDataArr = [];
 
-	// $scope.img
+	$scope.wikipediaExtract = function(){
+		plantService.extract($scope.veggie.name)
+	}
 
 	$scope.setDates = function(info){
 		$scope.sowDateInfo = info;

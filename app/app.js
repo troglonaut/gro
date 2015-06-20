@@ -15,6 +15,13 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
 			'hue-3': '50'
 		})
 
+		.backgroundPalette('yellow', {
+			'default': '50',
+			'hue-1': '300',
+			'hue-2': '200',
+			'hue-3': '50'
+		})
+
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
