@@ -1,5 +1,5 @@
 var app = angular.module('gro');
-app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authService, plantService, googleCalendarService){
+app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, $mdToast, $animate, authService, plantService, googleCalendarService){
 	$scope.user = authService.getUser($stateParams.userId);
   var user = $scope.user;
   var user1 = $scope.user;
@@ -20,7 +20,6 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
       templateUrl: 'guts/plantChoice/modal/modal.html',
       controller: 'modalCtrl',
       size: 'lg',
-      // backdropClass: 'custom-modal',
       resolve: {
         veggie: function(){
           return veggie;
@@ -37,9 +36,15 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
     });
   }
 
-  // $scope.cardToggle = function(){
-  // 	$scope.cardShow = !($scope.cardShow);
-  // }
+  $scope.openToast = function(){
+    $mdToast.show({
+      controller: 'toastCtrl',
+      templateUrl: 'guts/plantChoice/toast/toastTmpl.html',
+      hideDelay: 6000,
+      position: "top right"
+    });
+  }
+
 
   var newCal = {
     summary: 'gro Planting Dates'
