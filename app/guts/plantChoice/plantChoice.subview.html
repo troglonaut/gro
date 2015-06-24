@@ -1,11 +1,19 @@
 <md-card>
-	<h1>Hello, {{user.username}}!</h1>
-	<h2>Your location ({{user.zoneData.city}}, {{user.zoneData.state}}) is in USDA hardiness zone <strong>{{user.zoneData.zone}}</strong>.</h2>
+	<md-display-2>Hello, {{user.username}}!</md-display-2>
+	<md-body-2>Your location ({{user.zoneData.city}}, {{user.zoneData.state}}) is in USDA hardiness zone <strong>{{user.zoneData.zone}}</strong>.</md-body-2>
 </md-card>
 
+<div ng-repeat="veggie in userVeggies">
+	
+	<div>
+		{{veggie.name}}
+		<img src="{{veggie.imgPath}}" style="height: 200px; width:200px; object-fit: cover;" >
+	</div><
+</div>
 
-<md-card>
-	<h3>A WHOLE BUNCHA DATE STUFF</h3>
-	<iron-icon icon="perm-contact-calendar"></iron-icon>
-	<md-button class="md-primary md-raised md-display-1" ng-click="calMagic()">Add these dates to your Google Calendar!</md-button>
-</md-card>
+<md-tile ng-repeat="veggie in userVeggies">
+	<img src="veggie.imgPath" style="object-fit: scale-down;"
+</md-tile>
+
+
+<md-button class="md-primary md-raised md-display-1" ng-click="calMagic()">Add these dates to your Google Calendar!</md-button>

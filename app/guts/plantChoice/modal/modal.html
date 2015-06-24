@@ -1,5 +1,5 @@
 <md-content class="md-raised" style="padding:0;">  
-  <md-card md-class="primary-hue-3" style="height:auto; width:auto; padding:0; margin:0;">
+  <md-card style="height:auto; width:auto; padding:0; margin:0;">
     <md-toolbar style="padding: 10px;"><div class="md-display-1">{{veggie.displayName}}</div></md-toolbar>
     <img style="height: 200px; object-fit: cover;" ng-src="{{veggie.imgUrl}}" class="md-card-image"/>
     <md-card-content class="md-padding">
@@ -12,6 +12,8 @@
       <p>
         The {{veggie.name}} blah blah blah
       </p>
+
+      {{wordStuff}}
 
       <div class="md-actions" layout="row" layout-align="end center">
         <md-button class="md-primary" ng-click="cancel()">Cancel</md-button>

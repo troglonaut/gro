@@ -1,5 +1,5 @@
 var app = angular.module('gro');
-app.service('plantService', function($http, $q, $firebaseObject){
+app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray){
 
 	var fbUrl = "https://gro.firebaseio.com";
 	var plantsUrl = fbUrl + '/plants';
@@ -13,6 +13,29 @@ app.service('plantService', function($http, $q, $firebaseObject){
 		var veggiesRef = new Firebase(veggiesUrl);
 		var veggiesObj = $firebaseObject(veggiesRef);
 		return veggiesObj;
+	}
+
+	this.getUserVeggies = function(uid){
+		var userVeggieUrl = userUrl + '/' + uid + '/userVeggies';
+		var userVeggieRef = new Firebase(userVeggieUrl);
+		var userVeggieObj = $firebaseObject(userVeggieRef);
+		console.log(userVeggieObj)
+		return (userVeggieObj)
+	}
+
+	this.wikiExtract = function(veggie){
+		// console.log(veggie)
+		var dfd = $q.defer();
+		$http({
+			method: 'GET',
+			url: '/api/intro?name=' + veggie,
+		}).then(function(data){
+			// console.log(data)
+			var wikiData = data;
+			// console.log(wikiData);
+			dfd.resolve(wikiData);
+		})
+		return dfd.promise
 	}
 
 	this.addSowDates = function(user, veggieData){
@@ -36,13 +59,23 @@ app.service('plantService', function($http, $q, $firebaseObject){
 		var vegUrl = plantsUrl + '/veggies/' + veggieData.name;
   	try {
 	  	for(var i = 0; i < veggieData.sowInfo.length; i++){
-	  		fbRef.child('users').child(uid).child('user-veggies').child(veggieData.name).child(veggieData.sowInfo[i].sowType).set(veggieData.sowInfo[i]);
-	  		
+	  		// console.log(veggieData, user)
+	  		// console.log(veggieData.imgPath)
+	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child(veggieData.sowInfo[i].sowType).set(veggieData.sowInfo[i]);
+	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child('name').set(veggieData.name)
+	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child('imgPath').set(veggieData.imgPath)
 	  		fbRef.child('users').child(uid).child('calendar').child('calEvents').push(veggieData.sowInfo[i].calEvent);
+
+
 	  	}
   	}catch(error){
   		console.log(error)
   	} 	
+	}
+
+	this.vegGrid = function(user, veggieData){
+		console.log(veggieData)
+		fbRef.child('users').child(uid).child('veggieRepeat').set(veggieData);
 	}
 
 })

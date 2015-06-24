@@ -10,9 +10,17 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
 
 	$scope.saveDataArr = [];
 
-	$scope.wikipediaExtract = function(){
-		plantService.extract($scope.veggie.name)
-	}
+	// For use with wikipedia stuff
+	$scope.wordStuff = plantService.wikiExtract($scope.veggie.name)
+  console.log($scope.wordStuff);
+
+	// $scope.wikipediaExtract = function(){
+	// 	plantService.extract(veggie)
+	// 		.then(function(data){
+	// 			console.log(data)
+	// 		})
+	// }
+	// console.log($scope.wikipediaExtract)
 
 	$scope.setDates = function(info){
 		$scope.sowDateInfo = info;
@@ -21,7 +29,8 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
 	$scope.addSowDates = function(){
     $modalInstance.close({
 			name: veggie.name,
-			sowInfo: $scope.saveDataArr
+			sowInfo: $scope.saveDataArr,
+			imgPath: $scope.veggie.imgUrl
 		});
 	};
 

@@ -10,6 +10,11 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
   $scope.veggies = plantService.getVeggies();
   $scope.subview = $stateParams.subview;
 
+  $scope.pickedArr = [];
+  console.log($scope.pickedArr)
+
+  $scope.userVeggies = plantService.getUserVeggies(uid)
+
   $scope.openModal = function(veggie){
     var modal = $modal.open({
       templateUrl: 'guts/plantChoice/modal/modal.html',
@@ -27,12 +32,14 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, authSer
     });
     modal.result.then(function(vegUserData){
         plantService.addSowDates(user, vegUserData)
+        // plantService.vegGrid(user, vegUserData)
+        // console.log($scope.pickedArr)
     });
   }
 
-  $scope.cardToggle = function(){
-  	$scope.cardShow = !($scope.cardShow);
-  }
+  // $scope.cardToggle = function(){
+  // 	$scope.cardShow = !($scope.cardShow);
+  // }
 
   var newCal = {
     summary: 'gro Planting Dates'
