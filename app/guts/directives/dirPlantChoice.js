@@ -19,12 +19,8 @@ app.directive('dirPlantChoice', function(){
 			$scope.maxDate = formatDate(endDate);
 			var minDate = $scope.minDate;
 			$scope.dt = new Date(minDate);
-			console.log($scope.minDate, $scope.maxDate)
 			$scope.formattedBegin = new Date($scope.minDate)	
 			$scope.formattedEnd = new Date($scope.maxDate)
-			// $scope.dtLog = function(){
-			// 	console.log($scope.dt);
-			// }
 
 			$scope.onChange = function(){				
 				if($scope.showCal === true){
@@ -44,9 +40,7 @@ app.directive('dirPlantChoice', function(){
 						timestamp: new Date().toISOString(),
 						googleDate: calArray.join('')
 					}
-					console.log($scope.saveData)
 					$scope.saveDataArr.push($scope.saveData)
-					console.log($scope.saveDataArr)
 				}
 			}
 

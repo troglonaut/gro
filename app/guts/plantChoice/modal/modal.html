@@ -4,30 +4,27 @@
     <img style="height: 200px; object-fit: cover;" ng-src="{{veggie.localImg}}" class="md-card-image"/>
     <md-card-content class="md-padding">
       
-      <!-- <md-toolbar style="padding: 10px;"><div class="md-display-1">{{veggie.displayName}}</div></md-toolbar> -->
-      <!-- <img ng-src="veggie.img-url" class="md-card-image" /> -->
       <div layout="row">
-      <dir-plant-choice set-info="getInfo(sowType)" save-data-arr="saveDataArr" date-obj="val" sow-type="key" ng-repeat="(key, val) in veggie.zoneDates[user.zoneData.shortZone]" flex></dir-plant-choice>
-      </div>
-      <div class="md-title">
-        {{veggie.displayName}} info:       
-      </div>
-      <div class="md-body-1">
-        {{veggie.intro}}
-      </div>
-      <div class="md-caption">
-        <a href="{{veggie.infoLink}}">Learn more about {{veggie.name}}</a>
+        <dir-plant-choice set-info="getInfo(sowType)" save-data-arr="saveDataArr" date-obj="val" sow-type="key" ng-repeat="(key, val) in veggie.zoneDates[user.zoneData.shortZone]" flex></dir-plant-choice>
       </div>
       
-      <div class="md-actions" layout="row" layout-align="end center">
+      <div style="padding:9px" class="md-title">
+        {{veggie.displayName}} info:       
+      </div>
+      
+      <div style="padding:9px" class="md-body-1">
+        {{veggie.intro}}
+      </div>
+      
+      <div class="md-caption">
+        <a style="padding:9px" href="{{veggie.infoLink}}" target="_blank">Learn more about {{veggie.name}}</a>
+      </div>
+
+      <div style="padding:9px" class="md-actions" layout="row" layout-align="end center">
         <md-button class="md-primary" ng-click="cancel()">Cancel</md-button>
         <md-button class="md-raised md-primary" ng-click="addSowDates()">Add Dates</md-button>
       </div>
     </md-card-content>
 
-    <!-- <div class="md-actions" layout="row" layout-align="end center">
-      <md-button class="md-primary" ng-click="cancel()">Cancel</md-button>
-      <md-button class="md-raised md-primary" ng-click="addSowDates()">Add Dates</md-button>
-    </div> -->
   </md-card>
 </md-content>
