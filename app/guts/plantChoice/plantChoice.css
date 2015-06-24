@@ -34,3 +34,7 @@
 	width:calc(100% - 230px);
 	float:right;
 }
+
+md-grid-tile-footer {
+	opacity: 0.6 !important;
+}

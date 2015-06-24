@@ -3,17 +3,30 @@
 	<md-body-2>Your location ({{user.zoneData.city}}, {{user.zoneData.state}}) is in USDA hardiness zone <strong>{{user.zoneData.zone}}</strong>.</md-body-2>
 </md-card>
 
-<div ng-repeat="veggie in userVeggies">
-	
-	<div>
-		{{veggie.name}}
-		<img src="{{veggie.imgPath}}" style="height: 200px; width:200px; object-fit: cover;" >
-	</div><
+
+<!-- THE STUFF BELOW SHOULD STAY!!! IT IS FOR FLEXBOX INSTEAD OF MD-GRID-LIST!!! -->
+<!-- <div style="display:flex; flex-direction:row; flex-wrap:wrap; flex-flow:row wrap; justify-content:space-around;">
+	<div ng-repeat="veggie in userVeggies">
+		<div style="width:300px; height: 300px;">
+			<img src="{{veggie.imgPath}}" style="width:100%; height:100%; object-fit: cover;" >
+		</div>
+	</div>
+</div> -->
+
+<!-- <br> -->
+
+<div>
+<md-grid-list md-cols="4" md-rows="4" md-gutter="1px" md-row-height="310px" style="display:flex; flex-direction:row; flex-wrap:wrap; flex-flow:row wrap; justify-content:space-around;">
+	<md-grid-tile ng-repeat="veggie in userVeggies" style="margin:2px">
+		<div style="height:100%; width:100%">
+			<img src="{{veggie.imgPath}}" style="width:100%; height:100%; object-fit: cover;" >
+			<md-grid-tile-footer style="background-color: black; width:100%; padding-left: 5px">
+				<div class="md-title">{{veggie.name}}</div>
+			</md-grid-tile-footer>
+		</div>
+		
+	</md-grid-tile>
+</md-grid-list>
 </div>
-
-<md-tile ng-repeat="veggie in userVeggies">
-	<img src="veggie.imgPath" style="object-fit: scale-down;"
-</md-tile>
-
 
 <md-button class="md-primary md-raised md-display-1" ng-click="calMagic()">Add these dates to your Google Calendar!</md-button>
