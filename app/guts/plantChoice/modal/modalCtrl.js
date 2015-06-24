@@ -30,7 +30,8 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
     $modalInstance.close({
 			name: veggie.name,
 			sowInfo: $scope.saveDataArr,
-			imgPath: $scope.veggie.imgUrl
+			imgPath: $scope.veggie.imgUrl,
+			localImg: $scope.veggie.localImg
 		});
 	};
 

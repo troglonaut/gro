@@ -64,6 +64,7 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child(veggieData.sowInfo[i].sowType).set(veggieData.sowInfo[i]);
 	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child('name').set(veggieData.name)
 	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child('imgPath').set(veggieData.imgPath)
+	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child('localImg').set(veggieData.localImg)
 	  		fbRef.child('users').child(uid).child('calendar').child('calEvents').push(veggieData.sowInfo[i].calEvent);
 
 

@@ -14,7 +14,7 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, $mdToas
   console.log($scope.pickedArr)
 
   $scope.userVeggies = plantService.getUserVeggies(uid)
-
+  console.log($scope.userVeggies)
   $scope.openModal = function(veggie){
     var modal = $modal.open({
       templateUrl: 'guts/plantChoice/modal/modal.html',
