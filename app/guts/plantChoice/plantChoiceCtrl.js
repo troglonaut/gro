@@ -31,8 +31,6 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, $mdToas
     });
     modal.result.then(function(vegUserData){
         plantService.addSowDates(user, vegUserData)
-        // plantService.vegGrid(user, vegUserData)
-        // console.log($scope.pickedArr)
     });
   }
 
@@ -44,7 +42,6 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, $mdToas
       position: "top right"
     });
   }
-
 
   var newCal = {
     summary: 'gro Planting Dates'

@@ -1,9 +1,27 @@
 <div id="mainView">
  	
- 	<md-toolbar class="md-display-1">Choose your veggies!</md-toolbar>
+<!--  	<md-toolbar class="md-display-1" style="display:flex" layout="row"><md-icon md-svg-src="images/simpleLogo.svg" class="s48"></md-icon>Choose your veggies!</md-toolbar> -->
+
+ 	<md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button">
+        <md-icon md-svg-icon="images/simpleLogo.svg" class="s48"></md-icon>
+      </md-button>
+      <!-- <div> -->
+        <span class="md-display-1">Choose your vegetables</span>
+      <!-- </div> -->
+      <span flex></span>
+      <!-- <md-button class="md-icon-button" aria-label="Favorite">
+        <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="More">
+        <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+      </md-button> -->
+    </div>
+  </md-toolbar>
 
  	<div id="left-sidebar">
- 		<md-toolbar class="md-accent md-headline pc-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
+ 		<md-toolbar style="vertical-align:middle;" class="md-accent md-headline pc-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
  			{{veggie.displayName}}
 		</md-toolbar>	
  	</div>

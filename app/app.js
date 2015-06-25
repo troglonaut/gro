@@ -1,6 +1,10 @@
 var app = angular.module('gro', ['ui.router', 'firebase', 'ui.bootstrap','ngMaterial']);
-app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
+app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider){
 	
+	$mdIconProvider
+		.icon('gLogo', 'images/simpleLogo.png')
+		.icon('textIcon', 'images/textLogo.png')
+
 	$mdThemingProvider.theme('default')
 		.primaryPalette('green', {
 			'hue-1': '300',

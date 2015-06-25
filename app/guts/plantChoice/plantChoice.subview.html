@@ -3,7 +3,7 @@
 	<md-body-2>Your location ({{user.zoneData.city}}, {{user.zoneData.state}}) is in USDA hardiness zone <strong>{{user.zoneData.zone}}</strong>.</md-body-2>
 </md-card>
 
-<md-button style="width:100%; margin:0;" class="md-primary md-display-1" ng-click="calMagic(); openToast();">Add these dates to your Google Calendar!</md-button>
+<md-button style="width:100%; margin:0;" class="md-primary md-raised md-display-1" ng-click="calMagic(); openToast();">Add these dates to your Google Calendar!</md-button>
 
 <div>
 <md-grid-list md-cols="4" md-rows="4" md-gutter="1px" md-row-height="310px" style="display:flex; flex-direction:row; flex-wrap:wrap; flex-flow:row wrap; justify-content:space-around;">
@@ -14,7 +14,6 @@
 				<div class="md-title">{{veggie.name}}</div>
 			</md-grid-tile-footer>
 		</div>
-		
 	</md-grid-tile>
 </md-grid-list>
 </div>

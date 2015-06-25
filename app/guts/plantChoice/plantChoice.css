@@ -38,3 +38,16 @@
 md-grid-tile-footer {
 	opacity: 0.6 !important;
 }
+
+.s24 {
+  width: 24px;
+  height: 24px;
+  color: #f00; }
+.s36 {
+  width: 36px;
+  height: 36px;
+  color: #0f0; }
+.s48 {
+  width: 48px;
+  height: 48px;
+  color: #00f; }
