@@ -8,7 +8,7 @@
       <span flex></span>
       <md-fab-speed-dial md-direction="down" style="float:right; margin-top:auto;" class="md-fling" md-open="false">
         <md-fab-trigger>
-          <md-button aria-label="menu" class="md-fab s48 md-hue-1">
+          <md-button aria-label="menu" class="md-fab s48 md-primary md-hue-3">
             <md-tooltip md-direction="top">Menu</md-tooltip>
             <md-icon md-svg-icon="images/simpleLogo.svg" class="s48"></md-icon>
           </md-button>
@@ -32,9 +32,9 @@
   </md-toolbar>
 
  	<div id="left-sidebar">
- 		<md-toolbar style="vertical-align:middle;" class="md-accent md-headline pc-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
- 			{{veggie.displayName}}
-		</md-toolbar>	
+ 		<md-button style="vertical-align:middle; margin:0; width:100%; text-align:left; padding-left:8px;" class="md-accent md-headline md-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
+ 			<h2 class="md-title">{{veggie.displayName}}</h2>
+		</md-button>	
  	</div>
 
  	<div ui-view style="height:100%; width:calc(100% - 230px); float:right;"></div>
