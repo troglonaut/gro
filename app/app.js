@@ -1,4 +1,4 @@
-var app = angular.module('gro', ['ui.router', 'firebase', 'ui.bootstrap','ngMaterial']);
+var app = angular.module('gro', ['ui.router', 'firebase', 'ui.bootstrap','ngMaterial','ngAnimate']);
 app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider){
 	
 	$mdIconProvider

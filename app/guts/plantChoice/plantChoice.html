@@ -2,21 +2,32 @@
  	
 <!--  	<md-toolbar class="md-display-1" style="display:flex" layout="row"><md-icon md-svg-src="images/simpleLogo.svg" class="s48"></md-icon>Choose your veggies!</md-toolbar> -->
 
- 	<md-toolbar>
+  <md-toolbar>
     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button">
-        <md-icon md-svg-icon="images/simpleLogo.svg" class="s48"></md-icon>
-      </md-button>
-      <!-- <div> -->
-        <span class="md-display-1">Choose your vegetables</span>
-      <!-- </div> -->
+      <span class="md-display-1">Choose your vegetables</span>
       <span flex></span>
-      <!-- <md-button class="md-icon-button" aria-label="Favorite">
-        <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
-      </md-button>
-      <md-button class="md-icon-button" aria-label="More">
-        <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
-      </md-button> -->
+      <md-fab-speed-dial md-direction="down" style="float:right; margin-top:auto;" class="md-fling" md-open="false">
+        <md-fab-trigger>
+          <md-button aria-label="menu" class="md-fab s48 md-hue-1">
+            <md-tooltip md-direction="top">Menu</md-tooltip>
+            <md-icon md-svg-icon="images/simpleLogo.svg" class="s48"></md-icon>
+          </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+          <md-button class="md-fab md-hue-3 md-raised md-mini" style="margin-top:5px">
+            <md-tooltip md-direction="left">Twitter</md-tooltip>
+            <md-icon md-svg-src="images/simpleLogo.svg"></md-icon>
+          </md-button>
+          <md-button aria-label="facebook" class="md-fab md-raised md-mini" style="margin-top:5px">
+            <md-tooltip md-direction="right">Facebook</md-tooltip>
+            <md-icon md-svg-src="images/simpleLogo.svg"></md-icon>
+          </md-button>
+          <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini" style="margin-top:5px">
+            <md-tooltip md-direction="left">Google Hangout</md-tooltip>
+            <md-icon md-svg-src="images/simpleLogo.svg"></md-icon>
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
     </div>
   </md-toolbar>
 
