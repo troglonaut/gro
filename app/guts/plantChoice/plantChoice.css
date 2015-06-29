@@ -53,5 +53,5 @@ md-grid-tile-footer {
   color: #00f; }
 
 .md-fab:hover, .md-fab.md-focused {
-  background-color: #000 !important;
+  background-color: yellow !important;
 }

@@ -2,6 +2,7 @@
 <form>
 	<label>ZONE:</label><input ng-model="veg.zone">
 	<label>Veg Name:</label><input type="text" ng-model="veg.name"> <br>
+	<label>Display Name:</label><input ng-model="veg.displayName"> <br>
 	<br>
 	<label>direct sow begin</label><input ng-model="veg.dsbd"><br>
 	<label>direct sow end</label><input ng-model="veg.dsed"><br>
@@ -15,15 +16,106 @@
 	<label>transplant end</label><input ng-model="veg.transED"><br>
 	<label>transplant begin2</label><input ng-model="veg.transBD2"><br>
 	<label>transplant end2</label><input ng-model="veg.transED2"><br>
-
-	<label>Veg Sci Name:</label><input type="text" ng-model="veg.sciName"> <br>
-	<label>Veg Image URL:</label><input type="text" ng-model="imgUrl"> <br>
-	<label>name for URL:</label><input type="text" ng-model="namey">
+	<br>
+	<label>Image URL:</label><input type="text" ng-model="veg.imgUrl"> <br>
+	<label>Local Image:</label><input type="text" ng-model="veg.localImg"> <br>
+	<label>Intro:</label><input type="text" ng-model="veg.intro"> <br>
+	<label>Info Link:</label><input type="text" ng-model="veg.infoLink"> <br>
+	<label>Harvest Info:</label><input type="text" ng-model="veg.harvestInfo"> <br>		
 
 	<!-- button -->
 	<input type="submit" ng-click="createVeg()" value="Create Vegetable">
-	<input type="submit" ng-click="addUrl()" value="Add Image URL">
+	<!-- <input type="submit" ng-click="addUrl()" value="Add Image URL"> -->
 </form>
+
+<!-- <md-card>
+	<md-toolbar class="md-display-1" flex>
+		Plant Dashboard
+	</md-toolbar>
+
+	<md-input-container>
+		<label>Name:</label>
+		<input type="text" ng-model="veg.name">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Direct Sow Begin</label>
+		<input type="text" ng-model="veg.dsbd">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Direct Sow End</label>
+		<input ng-model="veg.dsed">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Direct Sow Begin 2</label>
+		<input type="text" ng-model="veg.dsbd2">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Direct Sow End 2</label>
+		<input ng-model="veg.dsed2">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Indoor Sow Begin</label>
+		<input type="text" ng-model="veg.isbd">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Indoor Sow End</label>
+		<input ng-model="veg.ised">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Indoor Sow Begin 2</label>
+		<input type="text" ng-model="veg.isbd2">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Indoor Sow End 2</label>
+		<input ng-model="veg.ised2">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Transplant Begin</label>
+		<input type="text" ng-model="veg.transBD">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Transplant End</label>
+		<input ng-model="veg.transED">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Transplant Begin 2</label>
+		<input type="text" ng-model="veg.transBD2">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Transplant End 2</label>
+		<input ng-model="veg.transED2">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Image URL</label>
+		<input ng-model="veg.imgUrl">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Local Image</label>
+		<input ng-model="veg.localImg">
+	</md-input-container>
+
+
+	<md-button class="md-primary" ng-click="registerUser()">Next Step</md-button>
+</md-card> -->
+
+
+
+
+
 
 
 <!-- <md-card>
@@ -37,7 +129,7 @@
 	<md-button ng-click="addUrl()" class="md-primary">Add URL</md-button>
 
 </md-card> -->
-<h1>intro, local image, blah blah blah</h1>
+<!-- <h1>intro, local image, blah blah blah</h1>
 <form>
 	<label>name:</label><input type="text" ng-model="veg.name">
 	<label>intro:</label><input type="text" ng-model="veg.intro">
@@ -45,4 +137,4 @@
 	<label>harvest info:</label><input type="text" ng-model="veg.harvestInfo">
 	<label>localImg:</label><input type="text" ng-model="veg.localImg">
 	<input type="submit" ng-click="addInfo()" value="Add Info">
-</form>
+</form> -->
