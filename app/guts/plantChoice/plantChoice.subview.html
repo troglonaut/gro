@@ -5,6 +5,7 @@
 
 <md-button style="width:100%; margin:0;" class="md-primary md-raised md-display-1" ng-click="calMagic(); openToast();">Add these dates to your Google Calendar!</md-button>
 
+<md-card>
 <md-grid-list md-cols="4" md-rows="4" md-gutter="1px" md-row-height="310px" style="display:flex; flex-direction:row; flex-wrap:wrap; flex-flow:row wrap; justify-content:space-around;">
 	<md-grid-tile ng-repeat="veggie in userVeggies" style="margin:1px">
 		<div style="height:100%; width:100%">
@@ -22,6 +23,7 @@
 		</div>
 	</md-grid-tile>
 </md-grid-list>
+</md-card>
 
 
 
