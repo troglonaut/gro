@@ -2,17 +2,11 @@
 
   <md-toolbar>
     <div class="md-toolbar-tools">
-      <span class="md-display-1">Choose your vegetables</span>
+      <span style="width:50px; height:50px; border-radius:50%; float:left; margin-right:15px;">
+        <img src="{{user.photoUrl}}" style="height:100%; width:100%; object-fit:cover;"/>
+      </span>
+      <span class="md-display-1" style="float:left">Choose your vegetables</span>
       <span flex></span>
-      
-
-      <!-- <md-button class="md-fab" style>
-      </md-button> -->
-
-      <div style="width:56px; height:56px; background-image:url("{{user.photoUrl}}"); border-radius:50%; position:absolute; z-index:1;">
-        <!-- <img src="{{user.photoUrl}}" style="height:100%; width:100%; object-fit:cover;"/> -->
-      </div>
-      
 
       <md-fab-speed-dial class="md-fling" md-direction="down" style="float:right; margin-top:auto;" md-open="false">
         <md-fab-trigger>

@@ -34,6 +34,7 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, $mdToas
     });
   }
 
+  // FOR TOAST
   $scope.openToast = function(){
     $mdToast.show({
       controller: 'toastCtrl',
@@ -43,10 +44,12 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, $mdToas
     });
   }
 
+  // CREATES NEW CALENDAR
   var newCal = {
     summary: 'gro Planting Dates'
   }
 
+  // EVERYTHING FOR ADDING CALENDAR TO USER GOOGLE ACCOUNT
   $scope.calMagic = function(){
     googleCalendarService.getEventInfo($scope.user)
       .then(function(dataArr){
