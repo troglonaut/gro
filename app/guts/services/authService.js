@@ -17,9 +17,7 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
 					console.log("Login Failed.", error);
 				} else {
           fbRef.child('users').child(authData.uid.replace('google:', '')).once('value', function(snapshot){
-            // console.log("SNAPSHOT", snapshot.val());
             if(snapshot.exists()){
-              // console.log("im hither");
               $state.go('plantChoice.subview', {userId: authData.uid.replace('google:', '')});
             } else {
               authData.timestamp = new Date().toISOString();

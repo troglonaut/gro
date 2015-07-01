@@ -21,8 +21,6 @@
     "angular-bootstrap": "~0.13.0",
     "ui-router": "~0.2.15",
     "angular-material": "~0.10.0",
-    "firebase-element": "GoogleWebComponents/firebase-element#^1.0.0",    
-    "google-apis": "GoogleWebComponents/google-apis#^1.0.0",
     "angular-animate": "~1.4.1"
   }
 }
