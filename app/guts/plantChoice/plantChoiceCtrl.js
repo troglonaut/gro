@@ -51,19 +51,38 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, $mdToas
 
   // EVERYTHING FOR ADDING CALENDAR TO USER GOOGLE ACCOUNT
   $scope.calMagic = function(){
+    // var calId;
+    // if(!$scope.user.userCalId){
     googleCalendarService.getEventInfo($scope.user)
       .then(function(dataArr){
         var allEvents = dataArr
         googleCalendarService.authCal()
           .then(function(data){
             var token = data.access_token;
-            googleCalendarService.makeCalendar(token, newCal)
+            
+            if(!$scope.user.userCalId){
+              googleCalendarService.makeCalendar(token, newCal)
               .then(function(data){
                 var calId = data.data.id;
-                console.log("Calendar ID:", calId)
-                googleCalendarService.addEvents(allEvents, calId, token)
+                googleCalendarService.setUserCalId($scope.user, calId)
+                .then(function(data){
+                  console.log(data)
+                  console.log("Calendar ID:", calId)
+                  googleCalendarService.addEvents(allEvents, $scope.user.userCalId, token)
+                })
               })
-          })
+
+            } else {
+              calId = $scope.user.userCalId
+            
+                console.log("Calendar ID:", calId)
+                googleCalendarService.addEvents(allEvents, $scope.user.userCalId, token)
+            }
+            
+        })
       })
+    // } else {
+    //   console.log('YOU ALREADY HAVE A CALENDAR')
+    // }
   }
 })

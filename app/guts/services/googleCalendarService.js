@@ -22,11 +22,35 @@ app.service('googleCalendarService', function($http, $q, $firebaseObject, $fireb
 
   this.makeCalendar = function(token, newCalData){
 		console.log(token)
-		return $http({
-			method: 'POST',
-			url: 'https://www.googleapis.com/calendar/v3/calendars?access_token=' + token + '&key={AIzaSyA-XA09f52psm_Iq85SiP8TDHOLAIrDZ6U}',
-			data: angular.toJson(newCalData)
-		})
+
+		// console.log(uid)
+		// if(!user.userCalId){
+			// var dfd = $q.defer()
+			return $http({
+				method: 'POST',
+				url: 'https://www.googleapis.com/calendar/v3/calendars?access_token=' + token + '&key={AIzaSyA-XA09f52psm_Iq85SiP8TDHOLAIrDZ6U}',
+				data: angular.toJson(newCalData)
+			})
+				// .then(function(data){
+				// console.log(data)
+				// dfd.resolve(data)
+				// var userCalId = data.data.id
+				// fbRef.child('users').child(uid).child('userCalId').set(userCalId);
+				
+				// return dfd.promise
+			// })
+		// } else {
+
+		// }
+	}
+
+	this.setUserCalId = function(user, calId){
+		var dfd = $q.defer()
+		// var uid = user.id;
+		// var userCalId = data.data.id
+		fbRef.child('users').child(user.id).child('userCalId').set(calId);
+		dfd.resolve(user)
+		return dfd.promise;
 	}
 
 	this.addEvents = function(eventsArr, calId, token){
