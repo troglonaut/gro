@@ -2,7 +2,6 @@ var app = angular.module('gro');
 app.controller('registerCtrl', function($scope, $stateParams, $state, $location, authService){
 	
 	$scope.user = authService.getUser($stateParams.userId)
-	console.log($scope.user)
 
 	$scope.registerUser = function(){
 		authService.getZone($scope.user.zip)

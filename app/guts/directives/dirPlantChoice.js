@@ -3,24 +3,24 @@ app.directive('dirPlantChoice', function(){
 	return {
 		templateUrl: 'guts/directives/dirPlantChoice.html',
 		scope: {
-			dateObj: '=',
-			sowType: '=',
-			saveDataArr: '=',
-			setInfo: '&'
+			dateObj     : '=',
+			sowType     : '=',
+			saveDataArr : '=',
+			setInfo     : '&'
 		},
 		controller: function($scope){
-			var sowType = $scope.sowType;
-			$scope.setInfo = ({sowType: $scope.saveData})
+			var sowType           = $scope.sowType;
+			$scope.setInfo        = ({sowType: $scope.saveData})
 
-			$scope.sowType = formatSowType($scope.sowType);
-			var beginDate = $scope.dateObj.beginDate;
-			var endDate = $scope.dateObj.endDate;
-			$scope.minDate = formatDate(beginDate);
-			$scope.maxDate = formatDate(endDate);
-			var minDate = $scope.minDate;
-			$scope.dt = new Date(minDate);
+			$scope.sowType        = formatSowType($scope.sowType);
+			var beginDate         = $scope.dateObj.beginDate;
+			var endDate           = $scope.dateObj.endDate;
+			$scope.minDate        = formatDate(beginDate);
+			$scope.maxDate        = formatDate(endDate);
+			var minDate           = $scope.minDate;
+			$scope.dt             = new Date(minDate);
 			$scope.formattedBegin = new Date($scope.minDate)	
-			$scope.formattedEnd = new Date($scope.maxDate)
+			$scope.formattedEnd   = new Date($scope.maxDate)
 
 			$scope.onChange = function(){				
 				if($scope.showCal === true){
@@ -35,10 +35,10 @@ app.directive('dirPlantChoice', function(){
 						}
 					}
 					$scope.saveData = {
-						sowType: $scope.sowType,
-						sowDate: $scope.dt.toDateString(),
-						timestamp: new Date().toISOString(),
-						googleDate: calArray.join('')
+						sowType    : $scope.sowType,
+						sowDate    : $scope.dt.toDateString(),
+						timestamp  : new Date().toISOString(),
+						googleDate : calArray.join('')
 					}
 					$scope.saveDataArr.push($scope.saveData)
 				}
@@ -58,7 +58,7 @@ app.directive('dirPlantChoice', function(){
 		  };
 
 		  $scope.showCal = false;
-		  $scope.format = 'yyyy-MMMM-dd'			
+		  $scope.format  = 'yyyy-MMMM-dd'			
 
 			function formatSowType(string){
 				if(string === "directSow"){
@@ -77,9 +77,9 @@ app.directive('dirPlantChoice', function(){
 			}
 
 			function formatDate(string){
-				var d = new Date();
+				var d    = new Date();
 				var year = d.getFullYear().toString() + '-';
-				var arr = string.split('');
+				var arr  = string.split('');
 				arr.splice(2, 0, "-");
 				arr.unshift(year);
 				var sowDate = arr.join('');

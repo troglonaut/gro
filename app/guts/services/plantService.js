@@ -1,11 +1,10 @@
 var app = angular.module('gro');
 app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray){
 
-	var fbUrl = "https://gro.firebaseio.com";
+	var fbUrl     = "https://gro.firebaseio.com";
 	var plantsUrl = fbUrl + '/plants';
-	var userUrl = fbUrl + '/users';
-	var fbRef = new Firebase(fbUrl);
-
+	var userUrl   = fbUrl + '/users';
+	var fbRef     = new Firebase(fbUrl);
 	var plantsRef = new Firebase(plantsUrl);
 
 	this.getVeggies = function(){
@@ -27,8 +26,8 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 		// console.log(veggie)
 		var dfd = $q.defer();
 		$http({
-			method: 'GET',
-			url: '/api/intro?name=' + veggie,
+			method : 'GET',
+			url    : '/api/intro?name=' + veggie,
 		}).then(function(data){
 			// console.log(data)
 			var wikiData = data;
@@ -39,7 +38,7 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 	}
 
 	this.addSowDates = function(user, veggieData){
-		var uid = user.$id
+		var uid        = user.$id
 		var userVegUrl = userUrl + "/" + uid;
 
   	// Creates Google Calendar event

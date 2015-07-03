@@ -2,17 +2,10 @@ var app = angular.module('gro');
 app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggie, user, plantService, authService){
 	console.log(veggie)
 
-	$scope.user = user;
-	$scope.veggie = veggie;
-	console.log($scope.veggie)
-	$scope.imagePath = $scope.veggie.imgUrl
-	console.log($scope.imagePath)
-
+	$scope.user        = user;
+	$scope.veggie      = veggie;
+	$scope.imagePath   = $scope.veggie.imgUrl
 	$scope.saveDataArr = [];
-
-	// For use with wikipedia stuff
-	$scope.wordStuff = plantService.wikiExtract($scope.veggie.name)
-  console.log($scope.wordStuff);
 
 	$scope.setDates = function(info){
 		$scope.sowDateInfo = info;
@@ -20,10 +13,10 @@ app.controller('modalCtrl', function($scope, $modalInstance, $stateParams, veggi
 
 	$scope.addSowDates = function(){
     $modalInstance.close({
-			name: veggie.name,
-			sowInfo: $scope.saveDataArr,
-			imgPath: $scope.veggie.imgUrl,
-			localImg: $scope.veggie.localImg
+			name     : veggie.name,
+			sowInfo  : $scope.saveDataArr,
+			imgPath  : $scope.veggie.imgUrl,
+			localImg : $scope.veggie.localImg
 		});
 	};
 
