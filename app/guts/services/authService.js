@@ -34,6 +34,10 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
 		})		
   }
 
+  // this.getAuthData = function(){
+    
+  // }
+
   // used in registerCtrl.js
   this.getUser = function(id){
     var url     = userUrl + '/' + id;
@@ -55,7 +59,6 @@ app.service('authService', function($http, $q, $firebaseAuth, $firebaseArray, $f
   	}).then(function(data){
       var userData         = {};
       betterData           = data.data.LOCATIONS.LOCATION[0].$
-  		// console.log(betterData)
       userData.zone        = betterData.PHZ.substr(5, 2);
       userData.zoneTemp    = betterData.PHZ.substr(9);
       userData.shortZone   = betterData.PHZ.substr(5, 1);

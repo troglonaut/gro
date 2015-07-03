@@ -4,9 +4,6 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, $mdToas
   var user    = $scope.user;
   var uid     = $scope.user.$id;
   
-  // console.log(user)
-  // console.log($scope.user)
-  
   $scope.veggies = plantService.getVeggies();
   $scope.subview = $stateParams.subview;
 
