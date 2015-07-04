@@ -8,6 +8,12 @@
       <span class="md-display-1" style="float:left">Choose your vegetables</span>
       <span flex></span>
 
+      <span class="md-subhead" layout="column" style="font-size:13px; padding-top:5px; padding-bottom:5px;">
+        <div>{{user.username}}</div>
+        <div>{{user.zoneData.city}}, {{user.zoneData.state}}</div>
+        <div>USDA Hardiness Zone: {{user.zoneData.zone}}</div>
+      </span>
+
       <md-fab-speed-dial class="md-fling" md-direction="down" style="float:right; margin-top:auto;" md-open="false">
         <md-fab-trigger>
           <md-button aria-label="menu" class="md-fab s48 md-primary md-hue-3">
