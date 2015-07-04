@@ -1,6 +1,6 @@
 <div id="mainView">
 
-  <md-toolbar>
+  <md-toolbar style="position:fixed; z-index:100;">
     <div class="md-toolbar-tools">
       
       <md-menu md-offset="35 75">
@@ -24,6 +24,8 @@
       <span class="md-display-1" style="margin-left:-20px;" float:left>Choose your vegetables</span>
       
       <span flex></span>
+
+      <!-- <md-button class="md-primary md-hue-3 md-display-1" ng-click="calMagic(); openToast();">Add these dates to your Google Calendar!</md-button> -->
 
       <span class="md-subhead" layout="column" style="font-size:13px; padding-top:5px; padding-bottom:5px;">
         <div>{{user.username}}</div>
@@ -64,11 +66,13 @@
     </div>
   </md-toolbar>
 
- 	<div id="left-sidebar">
- 		<md-button style="vertical-align:middle; margin:0; width:100%; text-align:left; padding-left:8px;" class="md-accent md-raised md-hue-2 md-headline md-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
+  <!-- <div id="left-sidebar"> -->
+  <md-content id="left-sidebar" style="position:fixed;">
+ 		<md-button style="vertical-align:middle; margin:0; width:100%; text-align:left; padding-left:8px;" class="md-accent md-headline md-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
  			<h2 class="md-title">{{veggie.displayName}}</h2>
-		</md-button>	
- 	</div>
+		</md-button>
+  </md-content>	
+  <!-- </div> -->
 
  	<div ui-view style="height:100%; width:calc(100% - 230px); float:right;"></div>
 </div>
