@@ -23,3 +23,9 @@ md-card md-card-content {
 md-toolbar {
 	vertical-align: middle;
 }
+
+.s200 {	
+  width: 130px;
+  height: 130px;
+  color: #00f; 
+}
