@@ -8,6 +8,7 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, $mdToas
   $scope.subview = $stateParams.subview;
 
   $scope.pickedArr = [];
+  
   console.log($scope.pickedArr)
 
   $scope.userVeggies = plantService.getUserVeggies(uid)

@@ -4,7 +4,7 @@ app.service('plantChildService', function($firebaseObject){
 	//reference to Firebase endpoints.
 	var fbUrl     = "https://gro.firebaseio.com";
 	var plantsUrl = fbUrl + '/plants';
-	var vegUrl    = plantsUrl + '/veggies';
+	var vegUrl    = plantsUrl + '/flowers';
 
 	//Creates an object using the Firebase Constructor with our endpoint passed in
 	var fbRef  = new Firebase(fbUrl)
@@ -37,7 +37,6 @@ app.service('plantChildService', function($firebaseObject){
 	this.addInfo = function(veg) {
 		console.log(veg)
 		var veggieRef = new Firebase(vegUrl + '/' + veg.name)
-		// console.log(veg.name, veggieRef)
 		veggieRef.child('localImg').set(veg.localImg);
 		veggieRef.child('intro').set(veg.intro);
 		veggieRef.child('infoLink').set(veg.infoLink);

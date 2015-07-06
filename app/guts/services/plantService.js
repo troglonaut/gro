@@ -22,21 +22,6 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 		return (userVeggieObj)
 	}
 
-	this.wikiExtract = function(veggie){
-		// console.log(veggie)
-		var dfd = $q.defer();
-		$http({
-			method : 'GET',
-			url    : '/api/intro?name=' + veggie,
-		}).then(function(data){
-			// console.log(data)
-			var wikiData = data;
-			// console.log(wikiData);
-			dfd.resolve(wikiData);
-		})
-		return dfd.promise
-	}
-
 	this.addSowDates = function(user, veggieData){
 		var uid        = user.$id
 		var userVegUrl = userUrl + "/" + uid;
@@ -58,15 +43,11 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 		var vegUrl = plantsUrl + '/veggies/' + veggieData.name;
   	try {
 	  	for(var i = 0; i < veggieData.sowInfo.length; i++){
-	  		// console.log(veggieData, user)
-	  		// console.log(veggieData.imgPath)
 	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child(veggieData.sowInfo[i].sowType).set(veggieData.sowInfo[i]);
 	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child('name').set(veggieData.name)
 	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child('imgPath').set(veggieData.imgPath)
 	  		fbRef.child('users').child(uid).child('userVeggies').child(veggieData.name).child('localImg').set(veggieData.localImg)
 	  		fbRef.child('users').child(uid).child('calendar').child('calEvents').push(veggieData.sowInfo[i].calEvent);
-
-
 	  	}
   	}catch(error){
   		console.log(error)
@@ -77,5 +58,17 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 		console.log(veggieData)
 		fbRef.child('users').child(uid).child('veggieRepeat').set(veggieData);
 	}
+
+	// this.wikiExtract = function(veggie){
+	// 	var dfd = $q.defer();
+	// 	$http({
+	// 		method : 'GET',
+	// 		url    : '/api/intro?name=' + veggie,
+	// 	}).then(function(data){
+	// 		var wikiData = data;
+	// 		dfd.resolve(wikiData);
+	// 	})
+	// 	return dfd.promise
+	// }	
 
 })

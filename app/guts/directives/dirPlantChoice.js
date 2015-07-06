@@ -11,7 +11,6 @@ app.directive('dirPlantChoice', function(){
 		controller: function($scope){
 			var sowType           = $scope.sowType;
 			$scope.setInfo        = ({sowType: $scope.saveData})
-
 			$scope.sowType        = formatSowType($scope.sowType);
 			var beginDate         = $scope.dateObj.beginDate;
 			var endDate           = $scope.dateObj.endDate;
@@ -24,9 +23,9 @@ app.directive('dirPlantChoice', function(){
 
 			$scope.onChange = function(){				
 				if($scope.showCal === true){
-					var forGoogDate = $scope.dt.toISOString()
+					var forGoogDate  = $scope.dt.toISOString()
 					var forGoogDate2 = forGoogDate.split('');
-					var calArray = [];
+					var calArray     = [];
 					for(var i = 0; i < forGoogDate2.length; i++){
 						if(forGoogDate2[i] === 'T'){
 							break
@@ -45,7 +44,7 @@ app.directive('dirPlantChoice', function(){
 			}
 
 			$scope.dateOptions = {
-		    startingDay: 1,
+		    // startingDay: 1,
 		    // initDate: minDate
 		  };
 			
@@ -53,7 +52,6 @@ app.directive('dirPlantChoice', function(){
 			$scope.open = function($event) {
 		    $event.preventDefault();
 		    $event.stopPropagation();
-
 		    $scope.opened = true;
 		  };
 
@@ -86,5 +84,6 @@ app.directive('dirPlantChoice', function(){
 				return sowDate;
 			}
 		}
+		// END OF CONTROLLER
 	}
 })
