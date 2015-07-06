@@ -22,7 +22,7 @@
        </md-menu-content>
       </md-menu>
 
-      <span class="md-display-1" style="margin-left:-20px;" float:left>Choose your vegetables</span>
+      <span class="md-display-1" style="margin-left:-20px;" float:left>Schedule Sow Dates Below</span>
       
       <span flex></span>
 
@@ -32,6 +32,7 @@
         <div>USDA Hardiness Zone: {{user.zoneData.zone}}</div>
       </span>
 
+      <!-- SPEED DIAL -->
       <md-fab-speed-dial class="md-fling" md-direction="down" style="float:right; margin-top:auto;" md-open="false">
         <md-fab-trigger>
           <md-button aria-label="menu" class="md-fab s48 md-primary md-hue-3">
@@ -65,23 +66,22 @@
     </div>
   </md-toolbar>
 
+  <!-- LEFT SIDEBAR -->
   <md-content id="left-sidebar" style="position:fixed; margin-top:64px;">
  		<md-tabs md-dynamic-height>
       <md-tab label="Veggies">
-                <md-button style="vertical-align:middle; margin:0; width:100%; text-align:left; padding-left:8px;" class="md-accent md-headline md-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
-             			<h2 class="md-title">{{veggie.displayName}}</h2>
-            		</md-button>
+        <md-button style="vertical-align:middle; margin:0; width:100%; text-align:left; padding-left:8px;" class="md-accent md-headline md-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
+     			<h2 class="md-title">{{veggie.displayName}}</h2>
+    		</md-button>
       </md-tab>
       <md-tab label="Flowers">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <md-button style="vertical-align:middle; margin:0; width:100%; text-align:left; padding-left:8px;" class="md-accent md-headline md-sidebar-item" ng-repeat="flower in flowers" ng-click="openModal(flower)">
+          <h2 class="md-title">{{flower.displayName}}</h2>
+        </md-button>
       </md-tab>
     </md-tabs>
   </md-content>	
 
+  <!-- MAIN PLANTCHOICE SUBVIEW -->
  	<div ui-view style="height:100%; width:calc(100% - 230px); float:right;"></div>
 </div>

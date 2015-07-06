@@ -14,6 +14,13 @@ app.service('plantService', function($http, $q, $firebaseObject, $firebaseArray)
 		return veggiesObj;
 	}
 
+	this.getFlowers = function(){
+		var flowersUrl = plantsUrl + '/flowers';
+		var flowersRef = new Firebase(flowersUrl);
+		var flowersObj = $firebaseObject(flowersRef);
+		return flowersObj;
+	}
+
 	this.getUserVeggies = function(uid){
 		var userVeggieUrl = userUrl + '/' + uid + '/userVeggies';
 		var userVeggieRef = new Firebase(userVeggieUrl);

@@ -5,6 +5,8 @@ app.controller('plantChoiceCtrl', function($scope, $stateParams, $modal, $mdToas
   var uid     = $scope.user.$id;
   
   $scope.veggies = plantService.getVeggies();
+  $scope.flowers = plantService.getFlowers();
+  console.log($scope.flowers)
   $scope.subview = $stateParams.subview;
 
   $scope.pickedArr = [];
