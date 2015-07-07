@@ -6,7 +6,12 @@
 		<md-grid-list md-cols="4" md-rows="4" md-gutter="1px" md-row-height="275px" style="display:flex; flex-direction:row; flex-wrap:wrap; flex-flow:row wrap; justify-content:space-around;">
 			<md-grid-tile ng-repeat="veggie in userVeggies">
 				<div style="height:100%; width:100%">
-					<!-- <md-grid-tile-header style="width:48px; margin-left:calc(100% - 48px);"></md-grid-tile-header> -->
+					<!-- <md-grid-tile-header>
+						<span layout="column">
+							<div ng-repeat="date in"class="md-subhead">asdfsaddf</div>
+							<div class="md-subhead">asdfasd</div>
+						</span>
+					</md-grid-tile-header> -->
 					<img src="{{veggie.localImg}}" style="width:100%; height:100%; object-fit: cover;" >
 					<md-grid-tile-footer layout="row" style="background-color: black; padding-left: 5px">
 						<md-button class="md-icon-button md-primary" aria-label="Settings">
@@ -17,7 +22,7 @@
 					</md-grid-tile-footer>
 				</div>
 			</md-grid-tile>
-		</md-grid-list>
+		</md-grid-list>;
 	</md-content>
 
 </div>
