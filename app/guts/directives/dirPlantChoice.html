@@ -1,12 +1,9 @@
-<md-card style="padding: 9px; margin:0;">
+<md-card style="padding: 9px; margin:0; height:120px;">
 	<md-title>{{sowType}}</md-title>
 	<md-subhead style="font-size:10px;">({{formattedBegin | date:"MMM d"}} - {{formattedEnd | date: "MMM d"}})</md-subhead>
   <br>
-	<!-- <md-checkbox md-class="primary" ng-model="showCal" aria-label="sowType"></md-checkbox> -->
 
   <md-switch ng-model="showCal" aria-label="sowType"></md-switch>
-  <!-- <paper-toggle-button class="md-primary" ng-model="showCal"></paper-toggle-button> -->
-	<!-- ^^ng-checked=""^^ -->
 
 	<div ng-show="showCal">
       <p class="input-group">
