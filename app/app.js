@@ -36,6 +36,12 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdI
 			url         : '/'
 		})
 
+		.state('calendar', {
+			templateUrl: 'guts/calendar/calendar.html',
+			controller: 'calendarCtrl',
+			url: '/calendar/:userId'
+		})
+
 		.state('register', {
 			templateUrl : 'guts/register/register.html',
 			controller  : 'registerCtrl',
@@ -46,7 +52,7 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdI
 		.state('plantChoice', {
 			templateUrl : 'guts/plantChoice/plantChoice.html',
 			controller  : 'plantChoiceCtrl',
-			url         : '/plantChoice/:userId/'
+			url         : '/plantChoice/:userId'
 		})
 
 		.state('plantChoice.subview', {
@@ -70,6 +76,12 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdI
 			controller  : 'plantSetupCtrl',
 			url         : '/plant-setup'
 		})
+
+		// .state('calendar', {
+		// 	templateUrl: 'guts/calendar/calendar.html',
+		// 	controller: 'calendarCtrl',
+		// 	url: '/calendar'
+		// })
 
 		// $locationProvider.html5Mode(true)
 
