@@ -1,44 +1,113 @@
 #left-sidebar {
-	width: 230px;
-	height: 100%;
-	float: left;
-	border-right: 1px solid white;
+	width        : 230px;
+	height       : 100%;
+	float        : left;
+	border-right : 1px solid white;
+	position     : fixed;
+	margin-top   : 64px;
 }
 
-.choice {
-	width: 100%;
-	height: 75px;
-	background-color: gray;
-	border: 1px solid white;
+.sidebarButton {
+	margin       : 0 !important;
+	width        : 100% !important;
+	text-align   : left !important;
+	padding-left : 8px !important;
 }
+
+/*.choice {
+	width            : 100%;
+	height           : 75px;
+	background-color : gray;
+	border           : 1px solid white;
+}*/
 
 .plant-tile {
-	width: 300px;
-	height: 300px;
-	margin: 15px;
-	border: 1px solid black;
-	float: left;
+	width  : 300px;
+	height : 300px;
+	margin : 15px;
+	border : 1px solid black;
+	float  : left;
 }
 
 .custom-modal {
-	padding: 0;
+	padding : 0;
 }
 
 .pc-sidebar-item {
-	padding-left: 10px;
-	margin: 2px;
+	padding-left : 10px;
+	margin       : 2px;
 }
 
 .pc-subview {
-	height:100%;
-	width:calc(100% - 230px);
-	float:right;
+	height : 100%;
+	width  : calc(100% - 230px);
+	float  : right;
 }
 
-md-grid-tile-footer {
-	opacity: 0.6 !important;
+.calendarButton {
+	width  : 100%;
+	margin : 0 !important;
+}
+
+.plantChoiceToolbar {
+	position : fixed;
+	z-index  : 100;
+}
+
+.plantChoiceMenuOpen {
+	width : 50px !important;
+}
+
+.pcUserImgContainer {
+	width         : 50px;
+	height        : 50px;
+	border-radius : 50%;
+	float         : left;
+	margin-right  : -30px;
+}
+
+.pcUserImgContainer img {
+	height     : 100%;
+	width      : 100%;
+	object-fit : cover;
+}
+
+.plantChoiceToolbar .md-subhead {
+	font-size      : 13px;
+	padding-top    : 5px;
+	padding-bottom : 5px;
+}
+
+.plantChoiceToolbar md-fab-speed-dial {
+	float      : right;
+	margin-top : auto;
 }
 
 .md-fab:hover, .md-fab.md-focused {
   background-color: #A8D783 !important;
+}
+
+.subviewGridList {
+	display         : flex;
+	flex-direction  : row;
+	flex-wrap       : wrap;
+	flex-flow       : row wrap;
+	justify-content : space-around;
+}
+
+.subviewGridTile {
+	height : 100%;
+	width  : 100%;
+}
+
+.subviewGridTile img {
+	width      : 100%;
+	height     : 100%;
+	object-fit : cover;
+}
+
+.subviewGridTile md-grid-tile-footer {
+	background-color : black;
+	padding-left     : 5px;
+	opacity          : 0.6 !important;
 }

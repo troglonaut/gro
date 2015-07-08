@@ -1,6 +1,7 @@
-
+@import "/guts/home/home.css";
 @import "/guts/plantChoice/plantChoice.css";
 @import "/guts/register/register.css";
+
 
 html, body {
 	height : 100%;

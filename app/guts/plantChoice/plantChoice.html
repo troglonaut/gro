@@ -1,12 +1,12 @@
 <div id="mainView">
 
-  <md-toolbar style="position:fixed; z-index:100;">
+  <md-toolbar class="plantChoiceToolbar">
     <div class="md-toolbar-tools">
       
       <md-menu md-offset="35 75">
-        <md-button style="width:50px !important;" ng-click="$mdOpenMenu()">
-          <span style="width:50px; height:50px; border-radius:50%; float:left; margin-right:-30px;">
-            <img src="{{user.photoUrl}}" style="height:100%; width:100%; object-fit:cover;"/>
+        <md-button class="plantChoiceMenuOpen" ng-click="$mdOpenMenu()">
+          <span class="pcUserImgContainer">
+            <img src="{{user.photoUrl}}"/>
             <md-tooltip md-direction="right">User Options</md-tooltip>
           </span>
         </md-button>
@@ -26,14 +26,14 @@
       
       <span flex></span>
 
-      <span class="md-subhead" layout="column" style="font-size:13px; padding-top:5px; padding-bottom:5px;">
+      <span class="md-subhead" layout="column">
         <div>{{user.username}}</div>
         <div>{{user.zoneData.city}}, {{user.zoneData.state}}</div>
         <div>USDA Hardiness Zone: {{user.zoneData.zone}}</div>
       </span>
 
       <!-- SPEED DIAL -->
-      <md-fab-speed-dial class="md-fling" md-direction="down" style="float:right; margin-top:auto;" md-open="false">
+      <md-fab-speed-dial class="md-fling" md-direction="down" md-open="false">
         <md-fab-trigger>
           <md-button aria-label="menu" class="md-fab s48 md-primary md-hue-3">
             <md-icon md-svg-icon="images/simpleLogo.svg" class="s48"></md-icon>
@@ -67,15 +67,15 @@
   </md-toolbar>
 
   <!-- LEFT SIDEBAR -->
-  <md-content id="left-sidebar" style="position:fixed; margin-top:64px;">
+  <md-content id="left-sidebar">
  		<md-tabs md-dynamic-height>
       <md-tab label="Veggies">
-        <md-button style="vertical-align:middle; margin:0; width:100%; text-align:left; padding-left:8px;" class="md-accent md-headline md-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
+        <md-button class="sidebarButton md-accent md-headline md-sidebar-item" ng-repeat="veggie in veggies" ng-click="openModal(veggie)">
      			<h2 class="md-title">{{veggie.displayName}}</h2>
     		</md-button>
       </md-tab>
       <md-tab label="Flowers">
-        <md-button style="vertical-align:middle; margin:0; width:100%; text-align:left; padding-left:8px;" class="md-accent md-headline md-sidebar-item" ng-repeat="flower in flowers" ng-click="openModal(flower)">
+        <md-button class="sidebarButton md-accent md-headline md-sidebar-item" ng-repeat="flower in flowers" ng-click="openModal(flower)">
           <h2 class="md-title">{{flower.displayName}}</h2>
         </md-button>
       </md-tab>
